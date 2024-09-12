@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    background-color: #F9F9F9;
+}
+
+
+/* サイドバー */
+
+.img {
+    width: 13%;
+}
+
+.side h1 {
+    background: linear-gradient(90deg, rgba(255, 101, 101, 1), rgba(255, 214, 151, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 30px;
+    font-size: 45px;
+}
+
+
+.sidebar {
+    width: 18%;
+    height: 100vh;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.side_content {
+    margin-top: 15px;
+}
+
+.search,
+.login {
+    border-bottom: 1px black solid;
+    padding: 15px;
+    margin: 0 10px;
+    box-sizing: border-box;
+}
+
+.search:hover,
+.login:hover {
+    color: #FA6B62;
+}
+
+.search p,
+.login p {
+    margin-left: 30%;
+}
+
+#login_p1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 13px;
+}
+
+#login_p2 {
+    padding-right: 20px;
+    margin: 5px 0 10px 20px;
+    font-size: 10px;
+}
+
+/* メイン */
+.main_search [type="text"] {
+    position: relative;
+    border: 2px solid #C0C0C0;
+    display: block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    height: 2.5em;
+    width: 400px;
+    overflow: hidden;
+}
