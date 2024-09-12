@@ -11,14 +11,11 @@
     @csrf    
     title<input type="text" name="title">
     <select name="tag">
-        <option value="1">節約術</option>
-        <option value="2">自炊</option>
-        <option value="3">家事</option>
-        <option value="4">防犯</option>
-        <option value="5">防災</option>
-        <option value="6">暮らし</option>
-        <option value="7">支出監理</option>
-        <option value="8">その他</option>
+        @if(isset($items))
+            @foreach($items as $item)
+            <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        @endif
     </select>
     <textarea name="description"></textarea>
     <input type="radio" name="problem" value="0">お悩み　　<input type="radio" name="problem" value="1">共有
