@@ -6,9 +6,19 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/', function () {
+    if (Auth::check()) {
+        // ログインしているユーザーはリダイレクト
+        return redirect('/top');
+    }
+
+    // 未ログインのユーザーにはトップページを表示
+    return view('top');
+});
+
 Auth::routes();
-// topページへのルーティング
-Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->middleware('auth');
+// topページへのルーティング(ログインしたユーザーがアクセスできる)
+Route::get('/top', [App\Http\Controllers\TopController::class, 'top'])->middleware('auth');
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index']);
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost']);

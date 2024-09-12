@@ -11,4 +11,9 @@ class TopController extends Controller
         $items = Post::all();
         return view("top",["items" => $items]);
     }
+
+    public function top() {
+        $items = Post::all();
+        return view("top",["items" => $items]);
+    }
 }

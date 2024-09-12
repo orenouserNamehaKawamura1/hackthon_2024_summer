@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -26,10 +27,15 @@ class LoginController extends Controller
      * @var string
      */
     // protected $redirectTo = '/';
-     protected function redirectTo()
+    //  protected function redirectTo()
+    // {
+    //     // ここでリダイレクト先を指定する
+    //     return '/';
+    // }
+    protected function authenticated(Request $request, $user)
     {
-        // ここでリダイレクト先を指定する
-        return '/';
+        // ログイン後にリダイレクト先を指定
+        return redirect('/');  // '/' にリダイレクト
     }
 
     /**
