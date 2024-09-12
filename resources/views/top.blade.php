@@ -34,6 +34,11 @@
             </div>
         </div>
         <div>
+            @if (Auth::check())
+        <p>ログイン中です</p>
+    @else
+        <p>ログアウト中です</p>
+    @endif
             <div class="main_search">
                 <input type="text">
                 <input type="submit">
