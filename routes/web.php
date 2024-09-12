@@ -11,6 +11,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\TopController::class, 'index']);
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index']);
+Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost']);
 // 詳細ページのルーティング
 Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index']);
 
