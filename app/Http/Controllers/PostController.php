@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
     public function index(){
-        return view("post");
+        // Tagsテーブルからタグの一覧処理を取得する
+        $items = Tag::all();
+        return view("post",["items" => $items]);
     }
 
     // 投稿されたデータをデータベースに登録する関数
@@ -36,7 +39,9 @@ class PostController extends Controller
 
         // 保存する
         $post->fill($param)->save();
-        return view("post");
+
+        // postページにリダイレクトする
+        return redirect("/post");
         
     }
 }
