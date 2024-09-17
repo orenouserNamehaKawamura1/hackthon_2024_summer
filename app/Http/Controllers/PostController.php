@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -19,6 +20,12 @@ class PostController extends Controller
         // 登録するデータを受け取る
         $title = $request->title;
         $tag = $request->tag;
+        $file = $request->file('image');
+        $path = $file->store('public/storage');
+        $originalName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $name = pathinfo($originalName, PATHINFO_FILENAME);
+        $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
         $description = $request->description;
         $problem = $request->problem;
 
@@ -28,7 +35,7 @@ class PostController extends Controller
             "tag_id" => $tag,
             "title" => $title,
             "description" => $description,
-            "img_path" => "sample.jpg",
+            "img_path" => $filename,
             "good" => 0,
             "problem_flag" => $problem,
             "delete_flag" => 0,
