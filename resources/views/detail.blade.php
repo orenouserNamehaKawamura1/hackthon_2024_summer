@@ -11,6 +11,8 @@
     @if(isset($item) && isset($user))
         <p>{{$user->name}}</p>
         <h2>{{$item->title}}</h2>
-        <span>{{$tags->[$item->tag]}}</span>
+        <span>{{$tag->name}}</span>
+        <p>{{$item->description}}</p>
+        <p>{{$item->created_at->format('Y/m/d')}}</p>
     @endif
 </html>

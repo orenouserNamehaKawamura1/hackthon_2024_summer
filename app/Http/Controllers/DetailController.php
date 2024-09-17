@@ -17,7 +17,7 @@ class DetailController extends Controller
         // データベースからid検索によるユーザー情報を受け取る
         $user = User::find(1);
         // データベースからタグの情報を受け取る
-        // $tag = Tag::all();
+        $tag = Tag::find($item["tag_id"]);
 
         return view("detail",["item" => $item,"user" => $user,"tag" => $tag]);
     }
