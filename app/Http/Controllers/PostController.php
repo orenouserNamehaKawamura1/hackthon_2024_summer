@@ -28,7 +28,7 @@ class PostController extends Controller
         $extension = $file->getClientOriginalExtension();
         $name = pathinfo($originalName, PATHINFO_FILENAME);
         $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
-        $path = $file->storeAs('public/storage',$filename);
+        $path = $file->storeAs('public',$filename);
         $description = $request->description;
         $problem = $request->problem;
 
