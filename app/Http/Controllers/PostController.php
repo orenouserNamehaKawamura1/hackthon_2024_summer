@@ -24,11 +24,11 @@ class PostController extends Controller
         $title = $request->title;
         $tag = $request->tag;
         $file = $request->file('image');
-        $path = $file->store('public/storage');
         $originalName = $file->getClientOriginalName();
         $extension = $file->getClientOriginalExtension();
         $name = pathinfo($originalName, PATHINFO_FILENAME);
         $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('public/storage',$filename);
         $description = $request->description;
         $problem = $request->problem;
 
