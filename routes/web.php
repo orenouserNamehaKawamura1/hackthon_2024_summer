@@ -23,7 +23,7 @@ Route::get('/top', [App\Http\Controllers\TopController::class, 'top'])->middlewa
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index']);
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost']);
 // 詳細ページのルーティング
-Route::get('/detail', [App\Http\Controllers\DetailController::class, 'index']);
+Route::get('/detail/{id}', [App\Http\Controllers\DetailController::class, 'index'])->name('detail');
 
 //ログインのルーティング
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
