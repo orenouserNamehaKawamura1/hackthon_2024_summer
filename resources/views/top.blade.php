@@ -26,7 +26,13 @@
                     <div class="img">
                         <img src="/img/login.png" alt="" width="100%">
                     </div>
-                    <p>ログイン</p>
+
+                    @if(Auth::check())
+                        <a href="{{route('logout')}}"><p>ログアウト</p></a>
+                    @else
+                        <a href="{{route('home')}}"><p>ログイン</p></a>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -52,6 +58,19 @@
         </div>
 
 
+    </div>
+    <!-- 投稿一覧 -->
+    <div>
+        @if(isset($items))
+            @foreach($items as $item)
+                <div style="margin-bottom: 10px">
+                    <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
+                    <p>{{$item->description}}</p>
+                    <p>{{$item->user->name}}</p>
+                    <p>{{$item->good}}</p>
+                </div>
+            @endforeach
+        @endif
     </div>
 </body>
 

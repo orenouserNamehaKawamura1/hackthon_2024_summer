@@ -8,7 +8,12 @@ use App\Models\Post;
 class TopController extends Controller
 {
     public function index(){
-        $items = Post::all();
+        $items = Post::all()->sortByDesc("created_at");
+        return view("top",["items" => $items]);
+    }
+
+    public function top() {
+        $items = Post::all()->sortByDesc("created_at");
         return view("top",["items" => $items]);
     }
 }

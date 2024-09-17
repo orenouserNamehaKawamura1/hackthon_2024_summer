@@ -13,8 +13,36 @@ class TagTableSeeder extends Seeder
      */
     public function run(): void
     {
+        // $param = [
+        //    "name" => "節約術"
+        // ];
+        // DB::table("tags")->insert($param);
         $param = [
-           "name" => "節約術"
+           "name" => "自炊"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "家事"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "防犯"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "防災"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "暮らし"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "支出"
+        ];
+        DB::table("tags")->insert($param);
+        $param = [
+           "name" => "その他"
         ];
         DB::table("tags")->insert($param);
     }
