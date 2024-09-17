@@ -27,7 +27,11 @@
                         <img src="/img/login.png" alt="" width="100%">
                     </div>
 
-                    <p>ログイン</p>
+                    @if(Auth::check())
+                        <a href="{{route('logout')}}"><p>ログアウト</p></a>
+                    @else
+                        <a href="{{route('home')}}"><p>ログイン</p></a>
+                    @endif
                 </div>
 
 
