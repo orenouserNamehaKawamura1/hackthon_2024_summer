@@ -32,17 +32,32 @@
                     @else
                         <a href="{{route('home')}}"><p>ログイン</p></a>
                     @endif
+
                 </div>
-
-
             </div>
         </div>
-        <div>
-            <div class="main_search">
-                <input type="text">
-                <input type="submit">
+
+        <div class="main">
+
+            <div class="main_search flex">
+                <img src="/img/sagasu2.png" class="main_search_img" width="21px">
+                <input type="text" placeholder="おすすめの料理">
+                <button>検索</button>
+            </div>
+
+            <div class="radio-group">
+                <div class="radio-area">
+                    <input type="radio" name="rdo_bg" id="rdobg1" checked="">
+                    <label for="rdobg1">お悩み</label>
+                </div>
+                <div class="radio-area">
+                    <input type="radio" name="rdo_bg" id="rdobg2">
+                    <label for="rdobg2">共有</label>
+                </div>
             </div>
         </div>
+
+
     </div>
     <!-- 投稿一覧 -->
     <div>
