@@ -44,6 +44,14 @@
             </div>
         </div>
     </div>
+    <div>
+        @if(isset($items))
+            @foreach($items as $item)
+                {{$item->user->name}}
+                {{$item->title}}
+            @endforeach
+        @endif
+    </div>
 </body>
 
 </html>
