@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>投稿</h1>
-<form action="/post" method="post">
+<form action="/post" method="post" enctype="multipart/form-data">
     @csrf    
     title<input type="text" name="title">
     <select name="tag">
@@ -17,6 +17,7 @@
             @endforeach
         @endif
     </select>
+    <input type="file" name="image">
     <textarea name="description"></textarea>
     <input type="radio" name="problem" value="0">お悩み　　<input type="radio" name="problem" value="1">共有
     <button type="submit">投稿</button>
