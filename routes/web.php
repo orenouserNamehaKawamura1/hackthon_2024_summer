@@ -20,8 +20,8 @@ Auth::routes();
 // topページへのルーティング(ログインしたユーザーがアクセスできる)
 Route::get('/top', [App\Http\Controllers\TopController::class, 'top'])->middleware('auth');
 // 投稿ページのルーティング
-Route::get('/post', [App\Http\Controllers\PostController::class, 'index']);
-Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost']);
+Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->middleware('auth');
+Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost'])->middleware('auth');
 // 詳細ページのルーティング
 Route::get('/detail/{id}', [App\Http\Controllers\DetailController::class, 'index'])->name('detail');
 //いいね機能のルーティング
