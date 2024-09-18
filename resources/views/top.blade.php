@@ -51,7 +51,7 @@
             <div class="radio-group">
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg1" checked="">
-                    <label for="rdobg1">お悩み</label>
+                    <label for="rdobg1">質問</label>
                 </div>
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg2">
