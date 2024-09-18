@@ -14,7 +14,7 @@
         <p>{{$tag->name}}
         {{$item->problem_flag ? '共有':'お悩み'}}
         </p>
-        <form action="" method="post">
+        <form action="{{route('detail',['id' => $item->id])}}" method="post">
             @csrf
             <input type="hidden" value = "{{$item->id}}" name = "id">
             <input type="submit" value = "いいね">

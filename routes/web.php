@@ -25,7 +25,7 @@ Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost']);
 // 詳細ページのルーティング
 Route::get('/detail/{id}', [App\Http\Controllers\DetailController::class, 'index'])->name('detail');
 //いいね機能のルーティング
-Route::post('detail/{id}',[App\Http\Controllers\DetailController::class, 'count_increment']);
+Route::post('detail/{id}',[App\Http\Controllers\DetailController::class, 'count_increment'])->name('detail');
 
 //ログインのルーティング
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

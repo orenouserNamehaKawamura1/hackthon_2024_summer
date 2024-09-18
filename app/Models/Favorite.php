@@ -9,11 +9,13 @@ class Favorite extends Model
 {
     use HasFactory;
 
-    public function likedPosts() {
-        return $this->belongsToMany('App/Model/Post');
+    protected $fillable = ['user_id', 'post_id'];
+
+    public function user() {
+        return $this->belongsTo('App\Models\User');
     }
 
-    public function likedByUsers() {
-        return $this->belongsToMany('App/Model/User');
+    public function post() {
+        return $this->belongsTo('App\Models\Post');
     }
 }
