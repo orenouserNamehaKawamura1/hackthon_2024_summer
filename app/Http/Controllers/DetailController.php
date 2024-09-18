@@ -21,4 +21,18 @@ class DetailController extends Controller
 
         return view("detail",["item" => $item,"user" => $user,"tag" => $tag]);
     }
+
+    //いいね数を増加する関数
+    public function count_increment(Request $request){
+        //フォームからidを受け取る
+        $id = $request->id;
+        //idの投稿データを取得
+        $item = Post::find($id);
+        if($item) {
+            $item->good += 1;
+            $item->save();
+        }
+        
+        return redirect()->route('detail', ['id' => $id]);
+    }
 }
