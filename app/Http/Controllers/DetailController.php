@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
+use App\Models\Comment;
 
 class DetailController extends Controller
 {
@@ -18,7 +19,9 @@ class DetailController extends Controller
         $user = User::find(1);
         // データベースからタグの情報を受け取る
         $tag = Tag::find($item["tag_id"]);
+        // データベースからコメントの一覧を取得する
+        $comment = Comment::where("post_id",$id)->get();
 
-        return view("detail",["item" => $item,"user" => $user,"tag" => $tag]);
+        return view("detail",["item" => $item,"user" => $user,"tag" => $tag,"comments" => $comment]);
     }
 }

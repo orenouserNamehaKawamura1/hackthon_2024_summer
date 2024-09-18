@@ -23,6 +23,16 @@
                 <input type="number" name="detailId" hidden value="{{$item->id}}">
                 <input type="submit" value="コメント">
             </form>
+            <ul>
+                @foreach($comments as $comment)
+                <li>
+                    <h3>{{$comment->user->name}}</h3>
+                    <p>{{$comment->created_at->format("Y/m/d")}}</p>
+                    <p>{{$comment->comment}}</p>
+                </li>
+                @endforeach
+            </ul>
+
         </div>
     @endif
 </html>
