@@ -28,11 +28,14 @@
                     </div>
 
                     @if(Auth::check())
-                        <a href="{{route('logout')}}"><p>ログアウト</p></a>
+                    <a href="{{route('logout')}}">
+                        <p>ログアウト</p>
+                    </a>
                     @else
-                        <a href="{{route('home')}}"><p>ログイン</p></a>
+                    <a href="{{route('home')}}">
+                        <p>ログイン</p>
+                    </a>
                     @endif
-
                 </div>
             </div>
         </div>
@@ -55,23 +58,92 @@
                     <label for="rdobg2">共有</label>
                 </div>
             </div>
-        </div>
 
+            <!-- 投稿一覧 -->
+            <div>
+                <div class="tab-wrap">
+                    <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked"><label
+                        class="tab-label" for="tab01">すべて</label>
+                    <div class="tab-content">
+                        コンテンツ 1
+                    </div>
+                    <input id="tab02" type="radio" name="tab" class="tab-switch tab2"><label class="tab-label"
+                        for="tab02">節約術</label>
+                    <div class="tab-content">
+                        コンテンツ 2
+                    </div>
+                    <input id="tab03" type="radio" name="tab" class="tab-switch tab3"><label class="tab-label"
+                        for="tab03">自炊</label>
+                    <div class="tab-content">
+                        コンテンツ 3
+                    </div>
+                    <input id="tab04" type="radio" name="tab" class="tab-switch tab4"><label class="tab-label"
+                        for="tab04">家事</label>
+                    <div class="tab-content">
+                        コンテンツ 4
+                    </div>
+                    <input id="tab05" type="radio" name="tab" class="tab-switch tab5"><label class="tab-label"
+                        for="tab05">防犯</label>
+                    <div class="tab-content">
+                        コンテンツ 5
+                    </div>
+                    <input id="tab06" type="radio" name="tab" class="tab-switch tab6"><label class="tab-label"
+                        for="tab06">防災</label>
+                    <div class="tab-content">
+                        コンテンツ 6
+                    </div>
+                    <input id="tab07" type="radio" name="tab" class="tab-switch tab7"><label class="tab-label"
+                        for="tab07">暮らし</label>
+                    <div class="tab-content">
+                        コンテンツ 7
+                    </div>
+                    <input id="tab08" type="radio" name="tab" class="tab-switch tab8"><label class="tab-label"
+                        for="tab08">支出管理</label>
+                    <div class="tab-content">
+                        @if(isset($items))
+                        @foreach($items as $item)
+                        <div style="margin-bottom: 10px">
+                            <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
+                            <p>{{$item->description}}</p>
+                            <p>{{$item->user->name}}</p>
+                            <p>{{$item->good}}</p>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
 
-    </div>
-    <!-- 投稿一覧 -->
-    <div>
-        @if(isset($items))
-            @foreach($items as $item)
+                    <input id="tab09" type="radio" name="tab" class="tab-switch tab9"><label class="tab-label"
+                        for="tab09">その他</label>
+                    <div class="tab-content">
+                        @if(isset($items))
+                        @foreach($items as $item)
+                        <div style="margin-bottom: 10px">
+                            <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
+                            <p>{{$item->description}}</p>
+                            <p>{{$item->user->name}}</p>
+                            <p>{{$item->good}}</p>
+                        </div>
+                        @endforeach
+                        @endif
+                    </div>
+                </div>
+
+                @if(isset($items))
+                @foreach($items as $item)
                 <div style="margin-bottom: 10px">
                     <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
                     <p>{{$item->description}}</p>
                     <p>{{$item->user->name}}</p>
                     <p>{{$item->good}}</p>
                 </div>
-            @endforeach
-        @endif
+                @endforeach
+                @endif
+
+            </div>
+        </div>
     </div>
+    <script src="/js/top.js"></script>
+
 </body>
 
 </html>
