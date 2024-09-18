@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\Favorite;
 
 class DetailController extends Controller
 {
@@ -19,9 +21,39 @@ class DetailController extends Controller
         $user = User::find(1);
         // データベースからタグの情報を受け取る
         $tag = Tag::find($item["tag_id"]);
-        // データベースからコメントの一覧を取得する
-        $comment = Comment::where("post_id",$id)->get();
+        // データベースからコメントの情報を受け取る
+        $comment = Comment::where('post_id',$id)->get();
 
         return view("detail",["item" => $item,"user" => $user,"tag" => $tag,"comments" => $comment]);
+    }
+
+    //いいね数を増加する関数
+    public function count_increment(Request $request){
+        // ログインしているユーザーのidを取得
+        $userId = Auth::id();
+        //フォームからidを受け取る
+        $postId = $request->id;
+        // 既にいいねしているか確認
+        $existingLike = Favorite::where('user_id', $userId)->where('post_id', $postId)->first();
+
+        if ($existingLike) {
+            return redirect()->route('detail', ['id' => $postId])->with('message', '既にいいねしています');
+        } else {
+            // いいねを追加
+            Favorite::create([
+                'user_id' => $userId,
+                'post_id' => $postId,
+            ]);
+        }
+
+        // いいねのカウントを増やす処理
+        $post = Post::find($postId);
+        if ($post) {
+            // いいねのカウントを増やす
+            $post->good += 1;
+            $post->save();
+        }
+
+        return redirect()->route('detail', ['id' => $postId]);
     }
 }
