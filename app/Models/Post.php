@@ -17,6 +17,9 @@ class Post extends Model
     public function tag(){
         return $this->belongsTo('App\Models\Tag');
     }
+    public function comment() {
+        return $this->hasMany('App\Models\Comment');
+    }
     public function favoritesPosts() {
         return $this->hasMany('App\Models\Favorite');
     }
