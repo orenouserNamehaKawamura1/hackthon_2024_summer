@@ -10,8 +10,10 @@
 </body>
     @if(isset($item) && isset($user))
         <p>{{$user->name}}</p>
+        <p><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" width = "300px" height = "200px"></p>
+        <p>{{$tag->name}}</p>
+        <p>{{$item->problem_flag ? '共有':'お悩み'}}</p>
         <h2>{{$item->title}}</h2>
-        <span>{{$tag->name}}</span>
         <p>{{$item->description}}</p>
         <p>{{$item->created_at->format('Y/m/d')}}</p>
     @endif
