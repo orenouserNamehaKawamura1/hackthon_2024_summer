@@ -109,6 +109,12 @@ body {
     border: none;
     width: 13%;
     color: white;
+    box-shadow: 2px 3px 2px gray;
+    transition: 0.5s;
+}
+
+.main_search button:hover {
+    transform: scale(0.95);
 }
 
 /* 選択ボタン */
@@ -151,7 +157,7 @@ body {
 .tab-wrap {
     display: flex;
     flex-wrap: wrap;
-    margin: 4% 0 0 8%;
+    margin: 4% 0 0 7%;
 }
 
 

@@ -19,9 +19,9 @@ function changeTabColor() {
         return;
     }
     // 選択された要素のスタイルを変更
-    tagLabel[index].style.cssText = `background-color: ${changeColor[index]}; border: 2px solid ${changeColor[index]}; padding:3px;`;
+    tagLabel[index].style.cssText = `background-color: ${changeColor[index]}; border: 2px solid ${changeColor[index]}; padding:3px; margin-top:6px`;
     // 選択されたコンテンツのボーダーを変更
-    tabContent[index].style.cssText = `border: 2px solid ${changeColor[index]};`;
+    tabContent[index].style.cssText = `border: 2px solid ${changeColor[index]}; `;
     // 元々選択されていた色を元の色に変更
     tagLabel[nowIndex].style.cssText = `background-color: ${tagColor[nowIndex]}; border:none;`;
     // 元々選択されていたコンテンツのボーダーを削除
