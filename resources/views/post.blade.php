@@ -27,9 +27,27 @@
 <div id="selectTag">
     <div class="flex">
         <h2>タグの編集</h2>
-        <img src="/img/close.png" alt="">
+        <button type="button" id="closeButton">
+            <img src="/img/close.png" alt="">
+        </button>
     </div>
+    <p id="sabTitle">ほかの人が見つけるときに便利なタグを設定しましょう</p>
+    <div id="taglabel">
+        @foreach($items as $item)
+            <label class="pointer"><div class="flex"><input type="radio" name="tag" class="pointer"><p>{{$item->name}}</p></div></label>
+        @endforeach
+    </div>
+    <div id="problem">
+        <p>お悩み相談ですか？</p>
+        <div class="flex">
+            <p>悩み相談の場合、チェックするとお悩みタグが追加されます。
+            チェックしない場合、共有タグが追加。</p>
+            <input type="checkbox" name="" switch>
+        </div>
+    </div>
+    <input type="submit" value="追加">
 </div>
+
 <script src="/js/post.js"></script>
 </body>
 </html>

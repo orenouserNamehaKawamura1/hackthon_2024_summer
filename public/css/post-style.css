@@ -9,19 +9,27 @@ body {
 .flex{
     display: flex;
 }
+.pointer{
+    cursor: pointer;
+}
 #selectTag{
-    width: 30%;
+    width: 40%;
     height: 80vh;
     position: fixed;
     inset: 0;
     margin: 0 auto;
+    padding: 16px 24px;
     top: 50px;
     background-color: white;
     border-radius: 20px;
 }
+#selectTag > .flex{
+    justify-content: space-between;
+}
 #selectTag h2{
     height: 32px;
     width: 70%;
+    margin-top: 4px;
     text-align: left;
     font-weight: lighter;
 }
@@ -31,4 +39,58 @@ body {
     height: 40px;
     margin-left: calc(auto + 20px);
 
+}
+#closeButton{
+    display: block;
+    border: none;
+    background-color: white;
+}
+#sabTitle{
+    font-size: 14px;
+    color: #656565;
+    margin-bottom: 10px;
+}
+#taglabel{
+    margin: 16px 0;
+}
+#taglabel label{
+    display: block;
+    font-size: 16px;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+#taglabel label > .flex{
+    align-items: center;
+}
+#taglabel input[type=radio]{
+    display: block;
+    margin-right: 4px;
+    height: 16px;
+    width: 16px;
+}
+#problem > p{
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+#problem .flex{
+    margin-bottom: 10px;
+}
+#problem .flex p{
+    font-size: 14px;
+    width: 90%;
+}
+#problem input[type=radio]{
+    display: block;
+}
+input[type=submit]{
+    background-color: #FA6B62;
+    border-radius: 16px;
+    font-size: 16px;
+    border: none;
+    width: 100px;
+    padding: 8px 0;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-top: 20px;
 }
