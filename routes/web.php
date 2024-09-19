@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [App\Http\Controllers\TopController::class, 'index']);
+Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
+Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('tag_list');
 
 Auth::routes();
 // topページへのルーティング(ログインしたユーザーがアクセスできる)

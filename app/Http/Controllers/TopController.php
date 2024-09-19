@@ -16,12 +16,12 @@ class TopController extends Controller
         //     // 未ログインのユーザーにはトップページを表示
         //     return view('top');
         // }
-        $id = $request->input('tab');
+        $id = $request->id;
         if(isset($id)) {
             //取得してきたidをもとにタグごとの一覧表示
             $items = Post::where('tag_id',$id)->get();
             return view("top",["items" => $items]);
-        } else {
+        } else if($id == 0){
             $items = Post::orderBy('created_at', 'desc')->get();
             return view("top",["items" => $items]);
         }
