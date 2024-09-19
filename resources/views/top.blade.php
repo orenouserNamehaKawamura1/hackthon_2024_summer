@@ -127,18 +127,6 @@
                         @endif
                     </div>
                 </div>
-
-                @if(isset($items))
-                @foreach($items as $item)
-                <div style="margin-bottom: 10px">
-                    <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
-                    <p>{{$item->description}}</p>
-                    <p>{{$item->user->name}}</p>
-                    <p>{{$item->good}}</p>
-                </div>
-                @endforeach
-                @endif
-
             </div>
         </div>
     </div>
