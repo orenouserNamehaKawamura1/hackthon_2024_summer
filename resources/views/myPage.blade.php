@@ -13,10 +13,11 @@
     @if(isset($items))
     @foreach($items as $item)
     <div style="margin-bottom: 10px">
-        <a href="{{route('detail',['id' => $item->id])}}">{{$item->title}}</a>
+        <h2>{{$item->title}}</h2>
         <p>{{$item->description}}</p>
         <p>{{$item->user->name}}</p>
         <p>{{$item->good}}</p>
+        <a href="{{route('edit',['id' => $item->id])}}">編集する</a>
     </div>
     @endforeach
     @endif

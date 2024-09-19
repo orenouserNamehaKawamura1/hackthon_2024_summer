@@ -6,24 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>編集ページ</h1>
-</body>
+<h1>編集ページ</h1>
+
+<form action="/post" method="post" enctype="multipart/form-data">
+    @csrf    
+    <a href="{{route('deletePost',['id' => $item->id])}}">削除する</a>
     @if(isset($item) && isset($user))
-        <p>{{$user->name}}</p>
-        <p><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" width = "300px" height = "200px"></p>
-        <p>{{$tag->name}}
-        {{$item->problem_flag ? '共有':'お悩み'}}
-        </p>
-        <form action="{{route('detail',['id' => $item->id])}}" method="post">
-            @csrf
-            <input type="hidden" value = "{{$item->id}}" name = "id">
-            <input type="submit" value = "いいね">
-        </form>
-        <p>{{$item->good}}</p>
-        <h2>{{$item->title}}</h2>
-        <p>{{$item->description}}</p>
-        <p>{{$item->created_at->format('Y/m/d')}}</p>
-        
+        title<input type="text" name="title" value="{{$item->title}}">
+        <select name="tag">
+            @foreach($tags as $tag)
+            <option value="{{$tag->id}}" {{$tag->id === $item->tag->id ? "selected" : ""}}>{{$tag->name}}</option>
+            @endforeach
+        </select>
+
+        <button type="button" id="selectOpen">選択</button>
+        <input type="file" name="image">
+        <textarea name="description">{{$item->description}}</textarea>
+        <input type="radio" name="problem" value="0" {{$item->problem_flag ? "checked" : ""}}>お悩み　　<input type="radio" name="problem" value="1" {{$item->problem_flag ? "" : "checked"}}>共有
+        <button type="submit">編集</button>
     @endif
+</form>
+</body>
 </html>
 
