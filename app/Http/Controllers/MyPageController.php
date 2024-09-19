@@ -12,7 +12,7 @@ class MyPageController extends Controller
     public function index(){
         $userId = Auth::id();
         // 投稿の一覧を取得する
-        $items = Post::where('user_id',$userId)->get()->sortByDesc("created_at");
+        $items = Post::where('user_id',$userId)->where("delete_flag",0)->get()->sortByDesc("created_at");
         return view("myPage",["items" => $items]);
     }
 }
