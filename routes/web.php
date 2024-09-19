@@ -30,6 +30,8 @@ Route::post('detail/{id}',[App\Http\Controllers\DetailController::class, 'count_
 Route::post('/comment', [App\Http\Controllers\CommentController::class, 'index']);
 // 編集ページのルーティング
 Route::get('/edit/{id}', [App\Http\Controllers\EditController::class, 'index'])->name('edit');
+// マイページのルーティング
+Route::get('/myPage', [App\Http\Controllers\MyPageController::class, 'index']);
 
 //ログインのルーティング
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
