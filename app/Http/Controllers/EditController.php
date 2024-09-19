@@ -25,7 +25,42 @@ class EditController extends Controller
     }
     // 投稿情報を編集する
     public function edit(Request $request){
+        // 登録するデータを受け取る
+        $postId = $request->id;
+        $userId = Auth::id();
+        $title = $request->title;
+        $tag = $request->tag;
+        // $file = $request->file('ima ge');
+        // $originalName = $file->getClientOriginalName();
+        // $extension = $file->getClientOriginalExtension();
+        // $name = pathinfo($originalName, PATHINFO_FILENAME);
+        // $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
+        // $path = $file->storeAs('public',$filename);
+        $description = $request->description;
+        $problem = $request->problem;
 
+        // データベースから投稿情報を取得する
+        $item = Post::find($postId);
+
+        // 登録するデータの連想配列
+        $param = [
+            "user_id" => $userId,
+            "tag_id" => $tag,
+            "title" => $title,
+            "description" => $description,
+            "img_path" => $item->img_path,
+            "good" => $item->good,
+            "problem_flag" => $problem,
+            "delete_flag" => $item->delete_flag,
+        ];
+
+
+        // 保存する
+        $item->fill($param)->save();
+
+
+        // マイページへリダイレクト
+        return redirect("/myPage");
     }
     // 編集情報を削除する
     public function delete(Request $request){

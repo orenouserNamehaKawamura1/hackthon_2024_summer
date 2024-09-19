@@ -32,6 +32,8 @@ Route::post('/comment', [App\Http\Controllers\CommentController::class, 'index']
 Route::get('/edit/{id}', [App\Http\Controllers\EditController::class, 'index'])->name('edit');
 // 投稿情報の削除のルーティング
 Route::get('/deletePost/{id}', [App\Http\Controllers\EditController::class, 'delete'])->name('deletePost');
+// 投稿情報の編集のルーティング
+Route::post('/editPost/{id}', [App\Http\Controllers\EditController::class, 'edit'])->name('editPost');
 // マイページのルーティング
 Route::get('/myPage', [App\Http\Controllers\MyPageController::class, 'index']);
 

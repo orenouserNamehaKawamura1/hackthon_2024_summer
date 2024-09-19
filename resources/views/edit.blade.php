@@ -8,7 +8,7 @@
 <body>
 <h1>編集ページ</h1>
 
-<form action="/post" method="post" enctype="multipart/form-data">
+<form action="{{route('editPost',['id' => $item->id])}}" method="post" enctype="multipart/form-data">
     @csrf    
     <a href="{{route('deletePost',['id' => $item->id])}}">削除する</a>
     @if(isset($item) && isset($user))
@@ -22,7 +22,7 @@
         <button type="button" id="selectOpen">選択</button>
         <input type="file" name="image">
         <textarea name="description">{{$item->description}}</textarea>
-        <input type="radio" name="problem" value="0" {{$item->problem_flag ? "checked" : ""}}>お悩み　　<input type="radio" name="problem" value="1" {{$item->problem_flag ? "" : "checked"}}>共有
+        <input type="radio" name="problem" value="0" {{$item->problem_flag ? "" : "checked"}}>お悩み　　<input type="radio" name="problem" value="1" {{$item->problem_flag ? "checked" : ""}}>共有
         <button type="submit">編集</button>
     @endif
 </form>
