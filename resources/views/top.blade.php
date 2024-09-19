@@ -97,15 +97,17 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
-                        <div class="post">
-                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                            <p id="post_p_1">{{$item->description}}</p>
-                            <div class="post_p_2 flex">
-                                <p>{{$item->user->name}}</p>
-                                <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                <p>{{$item->good}}</p>
+                        @if(!$item->delete_flag)
+                            <div class="post">
+                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                <p id="post_p_1">{{$item->description}}</p>
+                                <div class="post_p_2 flex">
+                                    <p>{{$item->user->name}}</p>
+                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                    <p>{{$item->good}}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endif    
                         @endforeach
                         @endif
                     </div>
@@ -114,15 +116,17 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
-                        <div class="post">
-                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                            <p id="post_p_1">{{$item->description}}</p>
-                            <div class="post_p_2 flex">
-                                <p>{{$item->user->name}}</p>
-                                <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                <p>{{$item->good}}</p>
+                        @if(!$item->delete_flag)
+                            <div class="post">
+                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                <p id="post_p_1">{{$item->description}}</p>
+                                <div class="post_p_2 flex">
+                                    <p>{{$item->user->name}}</p>
+                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                    <p>{{$item->good}}</p>
+                                </div>
                             </div>
-                        </div>
+                        @endif    
                         @endforeach
                         @endif
                     </div>
@@ -131,6 +135,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -140,6 +145,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -148,6 +154,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -157,6 +164,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -165,6 +173,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -174,6 +183,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -182,6 +192,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -191,6 +202,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -199,6 +211,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -208,6 +221,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -216,6 +230,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -225,6 +240,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
@@ -234,6 +250,7 @@
                     <div class="tab-content">
                         @if(isset($items))
                         @foreach($items as $item)
+                        @if(!$item->delete_flag)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -243,6 +260,7 @@
                                 <p>{{$item->good}}</p>
                             </div>
                         </div>
+                        @endif
                         @endforeach
                         @endif
                     </div>
