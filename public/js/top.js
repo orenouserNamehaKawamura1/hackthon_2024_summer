@@ -37,7 +37,7 @@ function changeTabColor() {
 function init() {
     // 一覧表示(tab1)に必要なスタイルを適用
     // 選択された要素のスタイルを変更
-    tagLabel[0].style.cssText = `background-color: ${changeColor[0]}; border: 2px solid ${changeColor[0]};`;
+    tagLabel[0].style.cssText = `background-color: ${changeColor[0]}; border: 2px solid ${changeColor[0]}`;
     // 選択されたコンテンツのボーダーを変更
     tabContent[0].style.cssText = `border: 2px solid ${changeColor[0]}`;
     // 表示したコンテンツに表示するクラスを付与
