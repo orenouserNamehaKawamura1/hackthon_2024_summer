@@ -9,18 +9,19 @@
     <title>Document</title>
 </head>
 
-<body>
+<body id="body">
     <div class="side flex">
         @component("layouts.sideber")
         @endcomponent
 
         <div class="main">
 
-            <div class="main_search flex">
+            <form action="/" method="post" class="main_search flex">
+                @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
-                <input type="text" placeholder="おすすめの料理">
-                <button>検索</button>
-            </div>
+                <input type="text" id="searchText" placeholder="おすすめの料理">
+                <button type="submit" onclick="searchPostList(event)">検索</button>
+            </form>
 
             <div class="radio-group">
                 <div class="radio-area">
