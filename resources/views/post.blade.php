@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/post-style.css">
+    <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+
 </head>
 <body>
+@component("layouts.sideber")
+@endcomponent
 <h1>投稿</h1>
 <form action="/post" method="post" enctype="multipart/form-data">
     @csrf    

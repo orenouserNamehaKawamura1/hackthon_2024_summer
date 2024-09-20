@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <title>Document</title>
 </head>
 <body>
     <h1>詳細ページ</h1>
-</body>
+    @component("layouts.sideber")
+    @endcomponent
     @if(isset($item) && isset($user))
         <p>{{$user->name}}</p>
         <p><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" width = "300px" height = "200px"></p>
@@ -43,5 +45,7 @@
 
         </div>
     @endif
+</body>
+
 </html>
 

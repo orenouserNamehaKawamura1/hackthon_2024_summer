@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
 </head>
 <body>
     <h1>ここはmypageです</h1>
-</body>
+    @component("layouts.sideber")
+    @endcomponent
 <h2>投稿一覧</h2>
 <div class="tab-content">
     @if(isset($items))
@@ -24,9 +26,7 @@
         @endforeach
     @endif
 </div>
-<style>
-    div + div{
-        border-top: 1px solid black;
-    }
-</style>
+
+</body>
+
 </html>

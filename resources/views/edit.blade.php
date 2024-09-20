@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
 </head>
 <body>
 <h1>編集ページ</h1>
-
+@component("layouts.sideber")
+@endcomponent
 <form action="{{route('editPost',['id' => $item->id])}}" method="post" enctype="multipart/form-data">
     @csrf    
     <a href="{{route('deletePost',['id' => $item->id])}}">削除する</a>
