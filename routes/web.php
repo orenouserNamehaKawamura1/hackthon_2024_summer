@@ -12,7 +12,7 @@ Auth::routes();
 // Route::get('/top', [App\Http\Controllers\TopController::class, 'top']);
 
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
-Route::get('/tag/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('tag_list');
+Route::get('/share/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->middleware('auth');
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost'])->middleware('auth');

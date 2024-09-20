@@ -25,11 +25,17 @@
             <div class="radio-group">
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg1" checked="">
-                    <label for="rdobg1">質問</label>
+                    <label for="rdobg1">
+                        <a href="{{route('share_list',['id' => 0])}}">質問</a>
+                        <!-- 質問 -->
+                    </label>
                 </div>
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg2">
-                    <label for="rdobg2">共有</label>
+                    <label for="rdobg2">
+                        <a href="{{route('share_list',['id' => 1])}}">共有</a>
+                        <!-- 共有 -->
+                    </label>
                 </div>
             </div>
 
@@ -103,8 +109,8 @@
                         家事
                     </label>
                     <div class="tab-content">
-                        @if(isset($cook_items))
-                        @foreach($cook_items as $item)
+                        @if(isset($work_items))
+                        @foreach($work_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
