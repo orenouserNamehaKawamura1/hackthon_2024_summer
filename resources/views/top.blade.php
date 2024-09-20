@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <title>Document</title>
 </head>
-
+{{isset($text)?$text:"なかった"}}
 <body id="body">
     <div class="side flex">
         @component("layouts.sideber")
@@ -16,10 +16,10 @@
 
         <div class="main">
 
-            <form action="/" method="post" class="main_search flex">
+            <form action="/" method="post" class="main_search flex"  accept-charset="UTF-8">
                 @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
-                <input type="text" id="searchText" placeholder="おすすめの料理">
+                <input type="text" name="text" id="searchText" placeholder="おすすめの料理">
                 <button type="submit" onclick="searchPostList(event)">検索</button>
             </form>
 

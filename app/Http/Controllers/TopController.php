@@ -27,6 +27,16 @@ class TopController extends Controller
         }
     }
 
+    public function search(Request $request){
+        // 送信されたテキストを受け取る
+        $text = $request->text ?? "ないよ";
+        // 曖昧検索で使用する%をエスケープ処理する
+        $pat = '%' . addcslashes($text, '%_\\') . '%';
+        // データベースから条件に一致したデータを受け取る
+        $items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->get()->sortByDesc("created_at");
+        return view("top",["items" => $items, "text" => $text]);
+        
+    } 
     // public function top() {
     //     $items = Post::all()->sortByDesc("created_at");
     //     return view("top",["items" => $items]);
