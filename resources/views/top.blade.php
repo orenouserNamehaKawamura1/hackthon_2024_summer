@@ -95,7 +95,7 @@
                     <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
                     <label
                         class="tab-label" for="tab01">
-                        <a href="{{route('top')}}">すべて</a>
+                        すべて
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
@@ -114,11 +114,11 @@
                     </div>
                     <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
                     <label class="tab-label" for="tab02">
-                        <a href="{{route('tag_list',['id' => 1])}}">節約術</a>
+                        節約術
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($eco_items))
+                        @foreach($eco_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -129,15 +129,17 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab03" type="radio" name="tab" class="tab-switch tab3">
                     <label class="tab-label" for="tab03">
-                        <a href="{{route('tag_list',['id' => 2])}}">自炊</a>
+                        自炊
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($cook_items))
+                        @foreach($cook_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -148,15 +150,17 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab04" type="radio" name="tab" class="tab-switch tab4">
                     <label class="tab-label" for="tab04">
-                        <a href="{{route('tag_list',['id' => 3])}}">家事</a>
+                        家事
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($cook_items))
+                        @foreach($cook_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -167,15 +171,17 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab05" type="radio" name="tab" class="tab-switch tab5">
                     <label class="tab-label" for="tab05">
-                        <a href="{{route('tag_list',['id' => 4])}}">防犯</a>
+                       防犯
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($security_items))
+                        @foreach($security_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -186,15 +192,17 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab06" type="radio" name="tab" class="tab-switch tab6">
                     <label class="tab-label"for="tab06">
-                        <a href="{{route('tag_list',['id' => 5])}}">防災</a>
+                        防災
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($disaster_items))
+                        @foreach($disaster_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -205,15 +213,17 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab07" type="radio" name="tab" class="tab-switch tab7">
                     <label class="tab-label"for="tab07">
-                        <a href="{{route('tag_list',['id' => 6])}}">暮らし</a>
+                        暮らし
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($life_items))
+                        @foreach($life_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -224,15 +234,17 @@
                             </div>
                         </div>
                         @endforeach
+                         @else
+                            <p>Not data</p>
                         @endif
                     </div>
                     <input id="tab08" type="radio" name="tab" class="tab-switch tab8">
                     <label class="tab-label"for="tab08">
-                        <a href="{{route('tag_list',['id' => 7])}}">支出管理</a>                        
+                        支出管理                        
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($manegement_items))
+                        @foreach($manegement_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -243,16 +255,18 @@
                             </div>
                         </div>
                         @endforeach
+                         @else
+                            <p>Not data</p>
                         @endif
                     </div>
 
                     <input id="tab09" type="radio" name="tab" class="tab-switch tab9">
                     <label class="tab-label"for="tab09">
-                        <a href="{{route('tag_list',['id' => 8])}}">その他</a>                        
+                        その他                        
                     </label>
                     <div class="tab-content">
-                        @if(isset($items))
-                        @foreach($items as $item)
+                        @if(isset($other_items))
+                        @foreach($other_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
@@ -263,6 +277,8 @@
                             </div>
                         </div>
                         @endforeach
+                         @else
+                            <p>Not data</p>
                         @endif
                     </div>
                 </div>
