@@ -6,7 +6,7 @@
                     <div class="img">
                         <img src="/img/sagasu.png" alt="" width="90%">
                     </div>
-                    <a href="{{route('logout')}}">
+                    <a href="/">
                         <p>さがす</p>
                     </a>
                 </div>
@@ -18,7 +18,7 @@
                             <div class="img">
                                 <img src="/img/mypage.png" alt="" width="90%">
                             </div>
-                            <a href="{{route('logout')}}">
+                            <a href="/myPage">
                                 <p>マイページ</p>
                             </a>
                         </div>
@@ -26,7 +26,7 @@
                             <div class="img">
                                 <img src="/img/toukou.png" alt="" width="90%">
                             </div>
-                            <a href="{{route('logout')}}">
+                            <a href="/post">
                                 <p>投稿</p>
                             </a>
                         </div>
