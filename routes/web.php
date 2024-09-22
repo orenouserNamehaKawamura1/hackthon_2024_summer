@@ -11,8 +11,14 @@ Auth::routes();
 // topページへのルーティング(ログインしたユーザーがアクセスできる)
 // Route::get('/top', [App\Http\Controllers\TopController::class, 'top']);
 
+//ログインのルーティング
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//ログアウトのルーティング
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
+
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
-Route::get('/share/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
+Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->middleware('auth');
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost'])->middleware('auth');
@@ -30,8 +36,3 @@ Route::get('/deletePost/{id}', [App\Http\Controllers\EditController::class, 'del
 Route::post('/editPost/{id}', [App\Http\Controllers\EditController::class, 'edit'])->name('editPost');
 // マイページのルーティング
 Route::get('/myPage', [App\Http\Controllers\MyPageController::class, 'index']);
-
-//ログインのルーティング
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//ログアウトのルーティング
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout']);
