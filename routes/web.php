@@ -13,6 +13,8 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
 Route::get('/tag/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('tag_list');
+//　トップページの検索処理をするためのルーティング
+Route::Post('/', [App\Http\Controllers\TopController::class, 'search'])->name('top');
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->middleware('auth');
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost'])->middleware('auth');
