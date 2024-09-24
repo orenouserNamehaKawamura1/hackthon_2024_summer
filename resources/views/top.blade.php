@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <title>Document</title>
 </head>
-{{isset($text)?$text:"なかった"}}
 <body id="body">
     <div class="side flex">
         @component("layouts.sideber")
@@ -44,17 +43,21 @@
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
-                        @foreach($items as $item)
-                        <div class="post">
-                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                            <p id="post_p_1">{{$item->description}}</p>
-                            <div class="post_p_2 flex">
-                                <p>{{$item->user->name}}</p>
-                                <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                <p>{{$item->good}}</p>
+                        @if(count($items))
+                            @foreach($items as $item)
+                            <div class="post">
+                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                <p id="post_p_1">{{$item->description}}</p>
+                                <div class="post_p_2 flex">
+                                    <p>{{$item->user->name}}</p>
+                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                    <p>{{$item->good}}</p>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p>結果がありません</p>    
+                        @endif
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
