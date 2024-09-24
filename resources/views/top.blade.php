@@ -56,7 +56,7 @@
                             </div>
                             @endforeach
                         @else
-                            <p>結果がありません</p>    
+                            <p>Not data</p>    
                         @endif
                         @endif
                     </div>
