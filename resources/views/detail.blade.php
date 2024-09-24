@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-wppidth, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+    @component("layouts.fonts")
+    @endcomponent
     <title>Document</title>
 </head>
 
 <body class="flex">
     @component("layouts.sideber")
     @endcomponent
-    <div>
+    <div class="noto-sans-jp-400">
         @if(isset($item) && isset($user))
         <p>{{$user->name}}</p>
         <p><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" width="300px" height="200px"></p>

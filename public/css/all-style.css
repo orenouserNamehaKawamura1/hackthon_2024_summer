@@ -4,6 +4,22 @@
     margin: 0;
 }
 
+/* fonts */
+ /* noto sans jp*/
+
+.noto-sans-jp-300 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:300;
+  font-style: normal;
+}
+.noto-sans-jp-400 {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:400;
+    font-style: normal;
+  }
+
 .flex {
     display: flex;
 }
