@@ -55,7 +55,7 @@
         </div> 
     </div>
     </div>
-    <input type="submit" value="追加">
+    <input type="button" value="追加" id="addButton" class="pointer">
 </div>  
 
 <script src="/js/post.js"></script>
