@@ -8,6 +8,10 @@ const problemRadio = document.getElementsByClassName("problem");
 const TagRadio = document.getElementsByClassName("TagRadio");
 const tagSelect = document.getElementById("tagSelect");
 const addButton = document.getElementById("addButton");
+// 画面に画像を追加と表示されているボタン
+const fileButton = document.getElementById("fileButton");
+// heddinで隠されているinput flieボタン
+const inputFile = document.getElementById("inputFile");
 
 // 変数一覧
 // タグの編集でタグ編集したい要素番号を格納する変数
@@ -17,6 +21,8 @@ let TagFlgIndex = 0;
 
 
 // イベント一覧
+
+// ◆ポップアップ関連の処理◆
 
  // タグを選択する要素を表示
 selectOpen.addEventListener("click", (event) => {
@@ -78,6 +84,42 @@ addButton.addEventListener("click",()=>{
     // ポップアップを非表示にする
     editMenu.setAttribute("hidden", "hidddn");
 });
+
+// ◆画像のアップロードに関する処理◆
+
+// 画像を追加ボタンをクリックしたらinput typefileのclickイベントを発火させる処理
+fileButton.addEventListener("click",()=>{
+    inputFile.click();
+});
+
+// 画像が追加されたら画面に表示する処理
+inputFile.addEventListener('change', (event) => {
+    const file = event.target.files[0]
+  
+    // fileがundefinedの時にreader.readAsDataURL(file)がエラーになるため、
+    // !fileがfalseの場合にreturnする。
+    if (!file) return
+  
+    const reader = new FileReader()
+    
+    // 背景画像を表示させる要素を取得
+    const postImg = document.getElementById("postImg");
+
+    reader.onload = (event) => {
+        postImg.src = event.target.result;
+    }
+  
+    reader.readAsDataURL(file)
+
+    // 画像のhiddenを削除する
+    postImg.removeAttribute("hidden")
+    postImg.style.cssText = "display:block;"
+    const imgBox = document.getElementById("imgBox")
+    imgBox.style.cssText = " background-color: white;";
+    
+  })
+
+
 
 // 初期処理
 editMenu.setAttribute("hidden", "hidddn");

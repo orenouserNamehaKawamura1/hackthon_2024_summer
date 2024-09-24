@@ -9,29 +9,42 @@
 
 </head>
 <body>
-
-    @component("layouts.sideber")
-    @endcomponent
-    <form id="form" action="/post" method="post" enctype="multipart/form-data">
-    <h1>投稿</h1>
-    <p>悩みや知識を発信しよう！</p>
-
-
-    @csrf    
-    title<input type="text" name="title">
-    <select name="tag" id="tagSelect">
-        @if(isset($items))
-            @foreach($items as $item)
-            <option value="{{$item->id}}">{{$item->name}}</option>
-            @endforeach
-        @endif
-    </select>
-    <button type="button" id="selectOpen">選択</button>
-    <input type="file" name="image">
-    <textarea name="description"></textarea>
-    <input type="radio" name="problem" value="0" class="problem" >お悩み　　<input type="radio" name="problem" value="1" class="problem" checked>共有
-    <button type="submit">投稿</button>
-</form>
+    <main class="flex">
+        @component("layouts.sideber")
+        @endcomponent
+        <form id="form" action="/post" method="post" enctype="multipart/form-data">
+        <h1>投稿</h1>
+        <p>悩みや知識を発信しよう！</p>
+        @csrf    
+        <div id="imgBox">
+            <img src="" alt="" hidden id="postImg">
+            <label for="file">
+                <button type="button" id="fileButton" class="flex pointer">
+                    <img src="/img/plus.png" alt="">
+                    <p>画像を追加</p>
+                </button>
+            </label>
+            <input type="file" name="image" id="inputFile">
+        </div>
+        <input type="text" name="title" placeholder="タイトル" id="title">
+        <textarea name="description" id="description" placeholder="本文"></textarea>
+        <div>
+            <p>タグ</p>
+            <div class="flex">
+                <select name="tag" id="tagSelect">
+                    @if(isset($items))
+                        @foreach($items as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
+                <button type="button" id="selectOpen">選択</button>
+                <input type="radio" name="problem" value="0" class="problem" >お悩み　　<input type="radio" name="problem" value="1" class="problem" checked>共有
+            </div>
+        </div>
+               <button type="submit">投稿</button>
+    </form>
+</main>
 <div id="editMenu">
     <div class="flex">
         <h2>タグの編集</h2>
