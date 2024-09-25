@@ -243,11 +243,11 @@
             <!-- 共有の一覧 -->
             <div>
                 <div class="tab-wrap-share">
-                    <!-- <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
+                    <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
                     <label
                         class="tab-label-share" for="tab01">
                         すべて
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_items))
                             @if(count($share_items))
@@ -270,10 +270,10 @@
                             @endif
                         @endif
                     </div>
-                    <!-- <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
+                    <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
                     <label class="tab-label-share" for="tab02">
                         節約術
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_eco_items))
                         @foreach($share_eco_items as $item)
@@ -291,10 +291,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab03" type="radio" name="tab" class="tab-switch tab3">
+                    <input id="tab03" type="radio" name="tab" class="tab-switch tab3">
                     <label class="tab-label-share" for="tab03">
                         自炊
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_cook_items))
                         @foreach($share_cook_items as $item)
@@ -312,10 +312,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab04" type="radio" name="tab" class="tab-switch tab4">
+                    <input id="tab04" type="radio" name="tab" class="tab-switch tab4">
                     <label class="tab-label-share" for="tab04">
                         家事
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_work_items))
                         @foreach($share_work_items as $item)
@@ -333,10 +333,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab05" type="radio" name="tab" class="tab-switch tab5">
+                    <input id="tab05" type="radio" name="tab" class="tab-switch tab5">
                     <label class="tab-label-share" for="tab05">
                        防犯
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_security_items))
                         @foreach($share_security_items as $item)
@@ -354,10 +354,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab06" type="radio" name="tab" class="tab-switch tab6">
+                    <input id="tab06" type="radio" name="tab" class="tab-switch tab6">
                     <label class="tab-label-share"for="tab06">
                         防災
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_disaster_items))
                         @foreach($share_disaster_items as $item)
@@ -375,10 +375,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab07" type="radio" name="tab" class="tab-switch tab7">
+                    <input id="tab07" type="radio" name="tab" class="tab-switch tab7">
                     <label class="tab-label-share"for="tab07">
                         暮らし
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_life_items))
                         @foreach($share_life_items as $item)
@@ -396,10 +396,10 @@
                             <p>Not data</p>
                         @endif
                     </div>
-                    <!-- <input id="tab08" type="radio" name="tab" class="tab-switch tab8">
+                    <input id="tab08" type="radio" name="tab" class="tab-switch tab8">
                     <label class="tab-label-share"for="tab08">
                         支出管理                        
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_manegement_items))
                         @foreach($share_manegement_items as $item)
@@ -418,10 +418,10 @@
                         @endif
                     </div>
 
-                    <!-- <input id="tab09" type="radio" name="tab" class="tab-switch tab9">
+                    <input id="tab09" type="radio" name="tab" class="tab-switch tab9">
                     <label class="tab-label-share"for="tab09">
                         その他                        
-                    </label> -->
+                    </label>
                     <div class="tab-content-share">
                         @if(isset($share_other_items))
                         @foreach($share_other_items as $item)
