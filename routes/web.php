@@ -18,7 +18,6 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
-Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
 //　トップページの検索処理をするためのルーティング
 Route::post('/', [App\Http\Controllers\TopController::class, 'search'])->name('top');
 // 投稿ページのルーティング
@@ -38,3 +37,5 @@ Route::get('/deletePost/{id}', [App\Http\Controllers\EditController::class, 'del
 Route::post('/editPost/{id}', [App\Http\Controllers\EditController::class, 'edit'])->name('editPost');
 // マイページのルーティング
 Route::get('/myPage', [App\Http\Controllers\MyPageController::class, 'index']);
+
+Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
