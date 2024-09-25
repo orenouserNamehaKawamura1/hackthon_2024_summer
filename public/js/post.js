@@ -42,8 +42,8 @@ selectOpen.addEventListener("click", (event) => {
     console.log(problemButton.checked);
 
     // タグの処理
-    TagIndex = tagSelect.value;
-    TagRadio[TagIndex - 1].checked = true;
+    TagIndex = tagSelect.value - 1;
+    TagRadio[TagIndex].checked = true;
 
 
     // 要素を表示
