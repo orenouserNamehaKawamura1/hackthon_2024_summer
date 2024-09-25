@@ -38,10 +38,11 @@
                 <p style="color : #FA6B62;">{{isset($titleError) && $titleError ? "タイトルが空でした。" : ""}}</p>
 
                 <!-- 投稿内容 -->
-                <div>
-                    <textarea name="description" id="description" class="main_content"
-                        placeholder="(1000文字以内)"></textarea>
-                    <label>投稿内容</label>
+
+                <div class="main_content">
+                    <textarea name="description" id="description" class="content_textarea" placeholder=""></textarea>
+                    <label>投稿内容(1000文字以内)</label>
+                    <span class="underline2"></span>
                 </div>
                 <p style="color : #FA6B62;">{{isset($descriptionError) && $descriptionError ? "本文が空でした。" : ""}}</p>
 
