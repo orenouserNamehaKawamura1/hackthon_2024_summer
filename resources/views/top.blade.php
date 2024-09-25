@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/css/top-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body id="body">
@@ -25,11 +26,17 @@
             <div class="radio-group">
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg1" checked="">
-                    <label for="rdobg1">質問</label>
+                    <label for="rdobg1">
+                        <a href="{{route('top')}}">質問</a>
+                        <!-- 質問 -->
+                    </label>
                 </div>
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg2">
-                    <label for="rdobg2">共有</label>
+                    <label for="rdobg2">
+                        <a href="{{route('share_list',['id' => 1])}}">共有</a>
+                        <!-- 共有 -->
+                    </label>
                 </div>
             </div>
 
@@ -43,21 +50,24 @@
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
-                        @if(count($items))
-                            @foreach($items as $item)
-                            <div class="post">
-                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                                <p id="post_p_1">{{$item->description}}</p>
-                                <div class="post_p_2 flex">
-                                    <p>{{$item->user->name}}</p>
-                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                    <p>{{$item->good}}</p>
+                            @if(count($items))
+                                @foreach($items as $item)
+                                <div class="post">
+                                    <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                    <p id="post_p_1">{{$item->description}}</p>
+                                    <div class="post_p_2 flex">
+                                        <p>{{$item->user->name}}</p>
+                                        <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                        <p>{{$item->good}}</p>
+                                    </div>
                                 </div>
+                                @endforeach
+                            <div class = "page">
+                                {{$items -> links('vendor.pagination.bootstrap-4')}}
                             </div>
-                            @endforeach
-                        @else
-                            <p>Not data</p>    
-                        @endif
+                            @else
+                                <p>Not data</p>    
+                            @endif
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
@@ -107,8 +117,8 @@
                         家事
                     </label>
                     <div class="tab-content">
-                        @if(isset($cook_items))
-                        @foreach($cook_items as $item)
+                        @if(isset($work_items))
+                        @foreach($work_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
