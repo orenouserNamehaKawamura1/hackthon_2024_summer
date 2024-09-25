@@ -9,19 +9,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
 </head>
-
-<body>
+<body id="body">
     <div class="side flex">
         @component("layouts.sideber")
         @endcomponent
 
         <div class="main">
 
-            <div class="main_search flex">
+            <form action="/" method="post" class="main_search flex"  accept-charset="UTF-8">
+                @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
-                <input type="text" placeholder="おすすめの料理">
-                <button>検索</button>
-            </div>
+                <input type="text" name="text" id="searchText" placeholder="おすすめの料理">
+                <button type="submit" onclick="searchPostList(event)">検索</button>
+            </form>
 
             <div class="radio-group">
                 <div class="radio-area">
@@ -50,20 +50,24 @@
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
-                        @foreach($items as $item)
-                        <div class="post">
-                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                            <p id="post_p_1">{{$item->description}}</p>
-                            <div class="post_p_2 flex">
-                                <p>{{$item->user->name}}</p>
-                                <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                <p>{{$item->good}}</p>
+                        @if(count($items))
+                            @foreach($items as $item)
+                            <div class="post">
+                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                <p id="post_p_1">{{$item->description}}</p>
+                                <div class="post_p_2 flex">
+                                    <p>{{$item->user->name}}</p>
+                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                    <p>{{$item->good}}</p>
+                                </div>
                             </div>
-                        </div>
-                        @endforeach
+                            @endforeach
                         <div class = "page">
                             {{$items -> links('vendor.pagination.bootstrap-4')}}
                         </div>
+                        @else
+                            <p>Not data</p>    
+                        @endif
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab"class="tab-switch tab2">

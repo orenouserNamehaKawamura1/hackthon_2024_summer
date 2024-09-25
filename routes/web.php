@@ -19,6 +19,8 @@ Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 Route::get('/', [App\Http\Controllers\TopController::class, 'index'])->name('top');
 Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
+//　トップページの検索処理をするためのルーティング
+Route::Post('/', [App\Http\Controllers\TopController::class, 'search'])->name('top');
 // 投稿ページのルーティング
 Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->middleware('auth');
 Route::Post('/post', [App\Http\Controllers\PostController::class, 'addPost'])->middleware('auth');
