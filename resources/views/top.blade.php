@@ -39,7 +39,7 @@
             </div>
 
             <!-- 投稿一覧 -->
-            <div class>
+            <div>
                 <div class="tab-wrap">
                     <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
                     <label

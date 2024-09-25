@@ -23,8 +23,8 @@ const changeColor = [
 ];
 const tagLabel = document.getElementsByClassName("tab-label");
 const tabContent = document.getElementsByClassName("tab-content");
-const problemContent = document.querySelector(".tab-content");
-const questionContent = document.querySelector("question");
+const questionContent = document.querySelector(".tab-content");
+const allContent = document.querySelectorAll(".tab-content");
 const tabShareContent = document.querySelector(".tab-content-share");
 let currentTab = "question";
 
@@ -47,14 +47,6 @@ function changeTabColor() {
         return;
     }
 
-    if (currentTab === "question") {
-        problemContent.style.display = "block";
-        tabShareContent.style.display = "none";
-    } else if (currentTab === "share") {
-        problemContent.style.display = "none";
-        // questionContent.style.display = "none";
-    }
-
     // 選択された要素のスタイルを変更
     tagLabel[
         index
@@ -73,6 +65,17 @@ function changeTabColor() {
     tabContent[index].classList.add("tab-content-on");
     // 元々表示されていたコンテンツの表示するクラスを削除
     tabContent[nowIndex].classList.remove("tab-content-on");
+
+    if (currentTab === "question") {
+        questionContent.style.display = "block";
+        tabShareContent.style.display = "none";
+    } else if (currentTab === "share") {
+        questionContent.style.display = "none";
+        allContent.forEach(function (item) {
+            console.log(item);
+            item.style.display = "none";
+        });
+    }
 
     // 共有コンテンツの枠線をタブの色と同じ色に設定
     if (currentTab === "share") {
@@ -105,8 +108,11 @@ document.addEventListener("DOMContentLoaded", function () {
             shareContent.style.display = "none";
             tabShareContent.style.display = "none";
             // init();
+            allContent.forEach(function (item) {
+                console.log(item);
+                item.style.display = "block";
+            });
             currentTab = "question";
-            console.log(currentTab);
         }
     });
 
@@ -117,10 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
             questionContent.style.display = "none";
             shareContent.style.display = "block";
             currentTab = "share";
-            console.log(currentTab);
 
             const shareIndex = nowIndex; // 現在選択されているタブの色を使用
             shareContent.style.cssText = `border: 2px solid ${changeColor[shareIndex]}; padding: 10px;`;
+            allContent.forEach(function (item) {
+                console.log(item);
+                item.style.display = "none";
+            });
         }
     });
 });
