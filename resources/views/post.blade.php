@@ -39,7 +39,7 @@
                     @endif
                 </select>
                 <button type="button" id="selectOpen">選択</button>
-                <input type="radio" name="problem" value="0" class="problem" >お悩み　　<input type="radio" name="problem" value="1" class="problem" checked>共有
+                <input type="radio" name="problem" value="0" class="problem" id="worries"><label for="worries" class="problemLabel" hidden="hidden">お悩み</label><input type="radio" name="problem" value="1" class="problem" checked id="share"><label for="share" class="problemLabel">共有</label>
             </div>
         </div>
                <button type="submit">投稿</button>

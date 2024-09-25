@@ -12,6 +12,8 @@ const addButton = document.getElementById("addButton");
 const fileButton = document.getElementById("fileButton");
 // heddinで隠されているinput flieボタン
 const inputFile = document.getElementById("inputFile");
+// お悩みか共有化のlabel
+const problemLabel = document.getElementsByClassName("problemLabel");
 
 // 変数一覧
 // タグの編集でタグ編集したい要素番号を格納する変数
@@ -81,6 +83,15 @@ addButton.addEventListener("click",()=>{
     // タグの編集を反映させる
     tagSelect[TagIndex].selected = true;
     problemRadio[TagFlgIndex].checked = true;
+
+    // お悩み・共有を画面上の表示・非表示を切り替える処理
+    if(TagFlgIndex === 0){
+        problemLabel[0].removeAttribute("hidden");
+        problemLabel[1].setAttribute("hidden","hidden");
+    }else{
+        problemLabel[0].setAttribute("hidden","hidden");
+        problemLabel[1].removeAttribute("hidden");
+    }
     // ポップアップを非表示にする
     editMenu.setAttribute("hidden", "hidddn");
 });

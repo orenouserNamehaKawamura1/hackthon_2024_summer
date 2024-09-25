@@ -222,3 +222,6 @@ main{
     padding-left: 8px;
     border: none;
 }
+.problem{
+    display: none;
+}
