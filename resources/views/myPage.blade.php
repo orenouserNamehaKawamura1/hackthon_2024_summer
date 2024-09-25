@@ -26,6 +26,7 @@
                     <img src="/img/hart.png" width="2.5%" height="2.5%">
                     <p>{{$item->good}}</p>
                 </div>
+                <a href="/edit/{{$item->id}}">編集する</a>
             </div>
             @endforeach
             <div class = "page">
