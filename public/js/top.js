@@ -1,13 +1,39 @@
 "use strict";
-const tagColor = ["yellow", "#E0E62F", "#E3DB2F", "#E8CB2E", "#F0B22D", "#F69E2D", "#FC872C", "#F56551", "#F84A75"];
-const changeColor = ["yellow", "#E0E62F", "#E3DB2F", "#E8CB2E", "#F0B22D", "#F69E2D", "#FC872C", "#F56551", "#F84A75"];
+const tagColor = [
+    "yellow",
+    "#E0E62F",
+    "#E3DB2F",
+    "#E8CB2E",
+    "#F0B22D",
+    "#F69E2D",
+    "#FC872C",
+    "#F56551",
+    "#F84A75",
+];
+const changeColor = [
+    "yellow",
+    "#E0E62F",
+    "#E3DB2F",
+    "#E8CB2E",
+    "#F0B22D",
+    "#F69E2D",
+    "#FC872C",
+    "#F56551",
+    "#F84A75",
+];
 const tagLabel = document.getElementsByClassName("tab-label");
 const tabContent = document.getElementsByClassName("tab-content");
+const tagLabelShare = document.getElementsByClassName("tab-label-share");
+const tabShareContent = document.getElementsByClassName(".tab-content-share");
+
 // 現在選択されている要素番号を格納する変数
 let nowIndex = 0;
 for (let i = 0; i < tagLabel.length; i++) {
     // 色を変える関数に要素番号を渡す
-    tagLabel[i].addEventListener("click", { index: i, handleEvent: changeTabColor });
+    tagLabel[i].addEventListener("click", {
+        index: i,
+        handleEvent: changeTabColor,
+    });
 }
 
 // tabの色を変える関数
@@ -19,11 +45,17 @@ function changeTabColor() {
         return;
     }
     // 選択された要素のスタイルを変更
-    tagLabel[index].style.cssText = `background-color: ${changeColor[index]}; border: 2px solid ${changeColor[index]}; padding:3px; margin-top:6px`;
+    tagLabel[
+        index
+    ].style.cssText = `background-color: ${changeColor[index]}; border: 2px solid ${changeColor[index]}; padding:3px; margin-top:6px`;
     // 選択されたコンテンツのボーダーを変更
-    tabContent[index].style.cssText = `border: 2px solid ${changeColor[index]}; `;
+    tabContent[
+        index
+    ].style.cssText = `border: 2px solid ${changeColor[index]}; `;
     // 元々選択されていた色を元の色に変更
-    tagLabel[nowIndex].style.cssText = `background-color: ${tagColor[nowIndex]}; border:none;`;
+    tagLabel[
+        nowIndex
+    ].style.cssText = `background-color: ${tagColor[nowIndex]}; border:none;`;
     // 元々選択されていたコンテンツのボーダーを削除
     tabContent[nowIndex].style.cssText = `border: none`;
     // 表示したコンテンツに表示するクラスを付与
@@ -33,6 +65,41 @@ function changeTabColor() {
     // 現在選択されている要素を変更
     nowIndex = index;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 質問と共有のラジオボタン
+    const questionTab = document.getElementById("rdobg1");
+    const shareTab = document.getElementById("rdobg2");
+
+    // 質問と共有に対応するコンテンツ
+    const questionLabel = document.querySelector(".tab-label");
+    const questionContent = document.querySelector(".tab-content");
+    const shareContent = document.querySelector(".tab-wrap-share");
+    const tabShareContent = document.querySelector(".tab-content-share");
+
+    // 初期状態では質問のコンテンツを表示、共有のコンテンツを非表示にする
+    shareContent.style.display = "none";
+
+    // 質問タブがクリックされた時の動作
+    questionTab.addEventListener("change", function () {
+        if (this.checked) {
+            // questionContent.style.display = "block";
+            // shareContent.style.display = "none";
+            init();
+            tabShareContent.style.display = "none";
+        }
+    });
+
+    // 共有タブがクリックされた時の動作
+    shareTab.addEventListener("change", function () {
+        if (this.checked) {
+            questionLabel.style.display = "none";
+            questionContent.style.display = "none";
+            shareContent.style.display = "block";
+        }
+    });
+});
+
 // ページ表示時に実行する処理
 function init() {
     // 一覧表示(tab1)に必要なスタイルを適用

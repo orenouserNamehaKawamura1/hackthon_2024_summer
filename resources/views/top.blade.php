@@ -27,15 +27,13 @@
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg1" checked="">
                     <label for="rdobg1">
-                        <a href="{{route('top')}}">質問</a>
-                        <!-- 質問 -->
+                        質問
                     </label>
                 </div>
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg2">
                     <label for="rdobg2">
-                        <a href="{{route('share_list',['id' => 1])}}">共有</a>
-                        <!-- 共有 -->
+                        共有
                     </label>
                 </div>
             </div>
@@ -225,6 +223,208 @@
                     <div class="tab-content">
                         @if(isset($other_items))
                         @foreach($other_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                         @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+            <!-- 共有の一覧 -->
+            <div>
+                <div class="tab-wrap-share">
+                    <!-- <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
+                    <label
+                        class="tab-label-share" for="tab01">
+                        すべて
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_items))
+                            @if(count($share_items))
+                                @foreach($share_items as $item)
+                                <div class="post">
+                                    <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                    <p id="post_p_1">{{$item->description}}</p>
+                                    <div class="post_p_2 flex">
+                                        <p>{{$item->user->name}}</p>
+                                        <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                        <p>{{$item->good}}</p>
+                                    </div>
+                                </div>
+                                @endforeach
+                            <div class = "page">
+                                <!-- {{$items -> links('vendor.pagination.bootstrap-4')}} -->
+                            </div>
+                            @else
+                                <p>Not data</p>    
+                            @endif
+                        @endif
+                    </div>
+                    <!-- <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
+                    <label class="tab-label-share" for="tab02">
+                        節約術
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_eco_items))
+                        @foreach($share_eco_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab03" type="radio" name="tab" class="tab-switch tab3">
+                    <label class="tab-label-share" for="tab03">
+                        自炊
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_cook_items))
+                        @foreach($share_cook_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab04" type="radio" name="tab" class="tab-switch tab4">
+                    <label class="tab-label-share" for="tab04">
+                        家事
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_work_items))
+                        @foreach($share_work_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab05" type="radio" name="tab" class="tab-switch tab5">
+                    <label class="tab-label-share" for="tab05">
+                       防犯
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_security_items))
+                        @foreach($share_security_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab06" type="radio" name="tab" class="tab-switch tab6">
+                    <label class="tab-label-share"for="tab06">
+                        防災
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_disaster_items))
+                        @foreach($share_disaster_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                        @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab07" type="radio" name="tab" class="tab-switch tab7">
+                    <label class="tab-label-share"for="tab07">
+                        暮らし
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_life_items))
+                        @foreach($share_life_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                         @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+                    <!-- <input id="tab08" type="radio" name="tab" class="tab-switch tab8">
+                    <label class="tab-label-share"for="tab08">
+                        支出管理                        
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_manegement_items))
+                        @foreach($share_manegement_items as $item)
+                        <div class="post">
+                            <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                            <p id="post_p_1">{{$item->description}}</p>
+                            <div class="post_p_2 flex">
+                                <p>{{$item->user->name}}</p>
+                                <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                <p>{{$item->good}}</p>
+                            </div>
+                        </div>
+                        @endforeach
+                         @else
+                            <p>Not data</p>
+                        @endif
+                    </div>
+
+                    <!-- <input id="tab09" type="radio" name="tab" class="tab-switch tab9">
+                    <label class="tab-label-share"for="tab09">
+                        その他                        
+                    </label> -->
+                    <div class="tab-content-share">
+                        @if(isset($share_other_items))
+                        @foreach($share_other_items as $item)
                         <div class="post">
                             <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
                             <p id="post_p_1">{{$item->description}}</p>
