@@ -38,7 +38,7 @@ class TopController extends Controller
             $other_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['other'])->orderBy('created_at', 'desc')->get();
 
         } else if($id == 1) {
-            $items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->get();
+            $items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->paginate(5);
             $eco_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['eco'])->orderBy('created_at', 'desc')->get();
             $cook_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['cook'])->orderBy('created_at', 'desc')->get();
             $work_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['work'])->orderBy('created_at', 'desc')->get();

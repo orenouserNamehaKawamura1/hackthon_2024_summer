@@ -27,7 +27,7 @@
                 <div class="radio-area">
                     <input type="radio" name="rdo_bg" id="rdobg1" checked="">
                     <label for="rdobg1">
-                        <a href="{{route('share_list',['id' => 0])}}">質問</a>
+                        <a href="{{route('top')}}">質問</a>
                         <!-- 質問 -->
                     </label>
                 </div>
@@ -50,24 +50,24 @@
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
-                        @if(count($items))
-                            @foreach($items as $item)
-                            <div class="post">
-                                <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
-                                <p id="post_p_1">{{$item->description}}</p>
-                                <div class="post_p_2 flex">
-                                    <p>{{$item->user->name}}</p>
-                                    <img src="/img/hart.png" width="2.5%" height="2.5%">
-                                    <p>{{$item->good}}</p>
+                            @if(count($items))
+                                @foreach($items as $item)
+                                <div class="post">
+                                    <a href="{{route('detail',['id' => $item->id])}}" class="post_a">{{$item->title}}</a>
+                                    <p id="post_p_1">{{$item->description}}</p>
+                                    <div class="post_p_2 flex">
+                                        <p>{{$item->user->name}}</p>
+                                        <img src="/img/hart.png" width="2.5%" height="2.5%">
+                                        <p>{{$item->good}}</p>
+                                    </div>
                                 </div>
+                                @endforeach
+                            <div class = "page">
+                                {{$items -> links('vendor.pagination.bootstrap-4')}}
                             </div>
-                            @endforeach
-                        <div class = "page">
-                            {{$items -> links('vendor.pagination.bootstrap-4')}}
-                        </div>
-                        @else
-                            <p>Not data</p>    
-                        @endif
+                            @else
+                                <p>Not data</p>    
+                            @endif
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab"class="tab-switch tab2">
