@@ -38,10 +38,10 @@
                 </div>
 
                 <!-- 投稿内容 -->
-                <div>
-                    <textarea name="description" id="description" class="main_content"
-                        placeholder="(1000文字以内)"></textarea>
-                    <labe>投稿内容</labe>
+                <div class="main_content">
+                    <textarea name="description" id="description" class="content_textarea" placeholder=""></textarea>
+                    <label>投稿内容(1000文字以内)</label>
+                    <span class="underline2"></span>
                 </div>
 
                 <div>
