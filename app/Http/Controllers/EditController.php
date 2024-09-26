@@ -36,6 +36,16 @@ class EditController extends Controller
         // データベースから投稿情報を取得する
         $item = Post::find($postId);
 
+        if(is_null($title) || is_null($description)){
+           // データベースからid検索によるユーザー情報を受け取る
+            $user = User::find(1);
+            // データベースからタグの情報を受け取る
+            $tag = Tag::all();;
+             // データベースからid検索による投稿情報を受け取る
+            $item = Post::find($postId);
+            return view("edit",["item" => $item, "titleError" => is_null($title), "descriptionError" => is_null($description),"user" => $user,"tags" => $tag]);
+        }
+
         // 画像が更新された場合
         // 画像関連の処理
         $file = $request->file('image');

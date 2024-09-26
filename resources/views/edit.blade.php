@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ideus</title>
     <link rel="stylesheet" href="/css/post-style.css">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
 
@@ -37,6 +37,8 @@
                     <label style="pointer-events: none;">タイトル</label>
                     <span class="underline"></span>
                 </div>
+                <p style="color : #FA6B62;">{{isset($titleError) && $titleError ? "タイトルが空でした。" : ""}}</p>
+
 
                 <!-- 投稿内容 -->
                 <div>
@@ -44,6 +46,7 @@
                         placeholder="(1000文字以内)">{{$item->description}}</textarea>
                     <labe>投稿内容</labe>
                 </div>
+                <p style="color : #FA6B62;">{{isset($descriptionError) && $descriptionError ? "本文が空でした。" : ""}}</p>
 
                 <div>
                     <p id="tag_p">タグ</p>
