@@ -61,7 +61,7 @@
                                 </div>
                                 @endforeach
                             <div class = "page">
-                                {{$items -> links('vendor.pagination.bootstrap-4')}}
+                                <!-- {{$items -> links('vendor.pagination.bootstrap-4')}} -->
                             </div>
                             @else
                                 <p>Not data</p>    
