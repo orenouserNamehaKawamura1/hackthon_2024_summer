@@ -124,7 +124,8 @@ class TopController extends Controller
         "life_items" => $life_items,
         "manegement_items" => $manegement_items,
         "other_items" => $other_items,
-        "id" => $id]);
+        "id" => $id,
+        "searchText" => $text]);
         
     } 
  

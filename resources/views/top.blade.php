@@ -21,7 +21,7 @@
             <form action="/" method="post" class="main_search flex" accept-charset="UTF-8">
                 @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
-                <input type="text" name="text" id="searchText" placeholder="おすすめの料理">
+                <input type="text" name="text" id="searchText" placeholder="ユーザ名・タイトルで検索" value="{{isset($searchText) ? $searchText : ''}}"> 
                 <button type="submit">検索</button>
             </form>
 
