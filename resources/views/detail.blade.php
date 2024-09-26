@@ -23,20 +23,31 @@
         <h2 class="htext title-main ">{{$item->title}}</h2>
         <p class="subtext">{{$tag->name}}{{$item->problem_flag ? '共有':'お悩み'}}
         </p>
-        <p class="maintext desc">{!!nl2br(e($item->description))!!}</p>
-        <div class="mainoutimg"><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" class="mainimage" width="300px" height="200px"></div>
 
-        <div class="post_p_2 flex others graytext">
-            
-            <p class="daytext">{{$item->created_at->format('Y/m/d')}}</p>
-            <div class="flex">
-            <p class="goods"><img src="/img/hart.png" width="70%" height="55%">{{$item->good}}</p>
-            <p class="goods"><img src="/img/comment.svg" width="60%" height="60%">{{$item->good}}</p>
-        
+        <p class="maintext desc">{{$item->description}}</p>
+
+        <div class=".mainothers">
+            <div class="mainoutimg"><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" class="mainimage" width="300px" height="200px"></div>
+
+            <div class="post_p_2 flex others graytext">
+
+                <p class="daytext">{{$item->created_at->format('Y/m/d')}}</p>
+                <div class="flex ingoods">
+                    <div class="flex">
+                    <p class="goodsimg"><img  src="/img/hart.png" width="70%" height="70%"><p class="goods">{{$item->good}}</p></p>
+
+                    </div>
+                    <div class="flex">
+                    <p class="goodsimg"><img  src="/img/comment.svg" width="90%" height="90%"><p class="goods">{{$item->good}}</p></p>
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
         <div>
-            <h3 class="htext">コメント</h3>
+            <h3 class="htext">{{$item->good}}件のコメント</h3>
             <form action="/comment" method="post">
                 @csrf
                 <input type="text" name="comment">
@@ -45,9 +56,11 @@
             </form>
             <ul>
                 @foreach($comments as $comment)
-                <li>
+                <li class="comment">
+                    <div class="flex">
                     <h3>{{$comment->user->name}}</h3>
-                    <p>{{$comment->created_at->format("Y/m/d")}}</p>
+                    <p class="daytext comment_day graytext">{{$comment->created_at->format("Y/m/d")}}</p>
+                    </div>
                     <p>{{$comment->comment}}</p>
                 </li>
                 @endforeach
