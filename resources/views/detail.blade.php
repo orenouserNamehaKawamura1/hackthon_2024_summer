@@ -32,23 +32,24 @@
             <div class="post_p_2 flex others graytext">
 
                 <p class="daytext">{{$item->created_at->format('Y/m/d')}}</p>
-                <div class="flex ingoods">
+                <form action="/detail/{{$item->id}}" method="post" class="flex ingoods">
+                    @csrf
                     <div class="flex">
-                    <p class="goodsimg"><img  src="/img/hart.png" width="70%" height="70%"><p class="goods">{{$item->good}}</p></p>
+                    <p class="goodsimg"><label for="goodSumbit"><img  src="/img/hart.png" width="70%" height="70%"><p class="goods">{{$item->good}}</p></p>
 
                     </div>
                     <div class="flex">
-                    <p class="goodsimg"><img  src="/img/comment.svg" width="90%" height="90%"><p class="goods">{{$item->good}}</p></p>
+                    <p class="goodsimg"><img  src="/img/comment.svg" width="90%" height="90%"><p class="goods">{{isset($comments) ? count($comments) : 0}}</p></p>
                     </div>
-
-                </div>
+                    <input type="submit" value="" hidden id="goodSumbit">
+                </form>
 
             </div>
 
         </div>
         <div>
             @if(Auth::check())
-            <h3 class="htext">{{$item->good}}件のコメント</h3>
+            <h3 class="htext">{{isset($comments) ? count($comments) : 0}}件のコメント</h3>
                 <form action="/comment" method="post">
                     @csrf
                     <input type="text" name="comment">

@@ -21,7 +21,7 @@ class TopController extends Controller
         ];
         
         // 各タブごとの一覧を表示
-            $items = Post::where('delete_flag', 0)->where('problem_flag',0)->orderBy('created_at', 'desc')->paginate(5);
+            $items = Post::where('delete_flag', 0)->where('problem_flag',0)->orderBy('created_at', 'desc')->get();
             $eco_items = Post::where('delete_flag', 0)->where('problem_flag',0)->where('tag_id',$tagId['eco'])->orderBy('created_at', 'desc')->get();
             $cook_items = Post::where('delete_flag', 0)->where('problem_flag',0)->where('tag_id',$tagId['cook'])->orderBy('created_at', 'desc')->get();
             $work_items = Post::where('delete_flag', 0)->where('problem_flag',0)->where('tag_id',$tagId['work'])->orderBy('created_at', 'desc')->get();
@@ -33,7 +33,7 @@ class TopController extends Controller
 
         
             $id = 1;
-            $share_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->paginate(5);
+            $share_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->get();
             $share_eco_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['eco'])->orderBy('created_at', 'desc')->get();
             $share_cook_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['cook'])->orderBy('created_at', 'desc')->get();
             $share_work_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['work'])->orderBy('created_at', 'desc')->get();
@@ -92,18 +92,18 @@ class TopController extends Controller
             // 曖昧検索で使用する%をエスケープ処理する
             $pat = '%' . addcslashes($text, '%_\\') . '%';
             // データベースから条件に一致したデータを受け取る
-            $items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->orderByDesc("created_at")->paginate(5);;
-            $eco_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['eco'])->orderByDesc("created_at")->paginate(5);;
-            $cook_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['cook'])->orderByDesc("created_at")->paginate(5);;
-            $work_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['work'])->orderByDesc("created_at")->paginate(5);;
-            $security_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['security'])->orderByDesc("created_at")->paginate(5);;
-            $disaster_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['disaster'])->orderByDesc("created_at")->paginate(5);;
-            $life_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['life'])->orderByDesc("created_at")->paginate(5);;
-            $manegement_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['manegement'])->orderByDesc("created_at")->paginate(5);;
-            $other_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['other'])->orderByDesc("created_at")->paginate(5);;
+            $items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->orderByDesc("created_at")->get();
+            $eco_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['eco'])->orderByDesc("created_at")->get();;
+            $cook_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['cook'])->orderByDesc("created_at")->get();;
+            $work_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['work'])->orderByDesc("created_at")->get();;
+            $security_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['security'])->orderByDesc("created_at")->get();;
+            $disaster_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['disaster'])->orderByDesc("created_at")->get();;
+            $life_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['life'])->orderByDesc("created_at")->get();;
+            $manegement_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['manegement'])->orderByDesc("created_at")->get();;
+            $other_items = Post::where('delete_flag',0)->where(function ($q) use ($pat){$q -> where("title","LIKE",$pat) -> orWhereHas("User",function($q) use ($pat){$q->where("name","LIKE",$pat);});})->where('tag_id',$tagId['other'])->orderByDesc("created_at")->get();;
         }else{
             // 一覧検索
-            $items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->paginate(5);
+            $items = Post::where('delete_flag', 0)->where('problem_flag',$id)->orderBy('created_at', 'desc')->get();
             $eco_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['eco'])->orderBy('created_at', 'desc')->get();
             $cook_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['cook'])->orderBy('created_at', 'desc')->get();
             $work_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['work'])->orderBy('created_at', 'desc')->get();
