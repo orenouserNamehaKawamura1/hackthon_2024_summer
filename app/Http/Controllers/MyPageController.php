@@ -12,7 +12,11 @@ class MyPageController extends Controller
     public function index(){
         $userId = Auth::id();
         // 投稿の一覧を取得する
-        $items = Post::where('user_id',$userId)->where("delete_flag",0)->get()->sortByDesc("created_at");
-        return view("myPage",["items" => $items]);
+        $posts = Post::where('user_id',$userId)->where("delete_flag",0)->orderByDesc("created_at")->paginate(5);
+        $goods = Post::whereHas("favoritesPosts",function($q) use ($userId){$q->where("user_id",$userId);})->where("delete_flag",0)->orderByDesc("created_at")->paginate(5);
+        $comments= Post::whereHas("comment",function($q) use ($userId){$q->where("user_id",$userId);})->where("delete_flag",0)->orderByDesc("created_at")->paginate(5);
+        
+        // $goods = Post::where('user_id',$userId)->where("delete_flag",0)->get()->sortByDesc("created_at");
+        return view("myPage",["posts" => $posts,"goods" => $goods, "comments" => $comments]);
     }
 }

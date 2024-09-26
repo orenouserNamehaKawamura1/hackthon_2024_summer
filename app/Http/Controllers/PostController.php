@@ -23,14 +23,27 @@ class PostController extends Controller
         $id = Auth::id();
         $title = $request->title;
         $tag = $request->tag;
-        $file = $request->file('image');
-        $originalName = $file->getClientOriginalName();
-        $extension = $file->getClientOriginalExtension();
-        $name = pathinfo($originalName, PATHINFO_FILENAME);
-        $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
-        $path = $file->storeAs('public',$filename);
         $description = $request->description;
         $problem = $request->problem;
+
+        // タイトルと本文が空
+        if(is_null($title) || is_null($description)){
+            // Tagsテーブルからタグの一覧処理を取得する
+            $items = Tag::all();
+            return view("post",["items" => $items, "titleError" => is_null($title), "descriptionError" => is_null($description)]);
+        }
+        // 画像関連の処理
+        $file = $request->file('image');
+        // 画像が遅れていない場合
+        if(!is_null($file)){
+            $originalName = $file->getClientOriginalName();
+            $extension = $file->getClientOriginalExtension();
+            $name = pathinfo($originalName, PATHINFO_FILENAME);
+            $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('public',$filename);
+        }else{
+            $filename = "";
+        }
 
         // 登録するデータの連想配列
         $param = [
