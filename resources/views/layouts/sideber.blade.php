@@ -1,9 +1,12 @@
 <div class="sidebar">
-    <h1>Ideus</h1>
-    <div class="side_content">
+    <div class="side_title">
+        <h1>Ideus</h1>
         @if(Auth::check())
         <p class="midiumtext"> {{Auth::user()->name}}</p>
         @endif
+    </div>
+    <div class="side_content">
+
 
         <div>
             @if(Auth::check())
