@@ -3,86 +3,112 @@
     margin: 0;
     box-sizing: border-box;
 }
+
 body {
     background-color: #F9F9F9;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.pointer{
+
+.pointer {
     cursor: pointer;
 }
-#editMenu{
+
+#editMenu {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+#editList {
     width: 40%;
     height: 80vh;
-    position: fixed;
-    inset: 0;
-    margin: 0 auto;
     padding: 16px 24px;
-    top: 50px;
     background-color: white;
     border-radius: 20px;
 }
-#editMenu > .flex{
+
+#editList>.flex {
     justify-content: space-between;
 }
-#editMenu h2{
+
+#editList h2 {
     height: 32px;
     width: 70%;
     margin-top: 4px;
     text-align: left;
     font-weight: lighter;
 }
-#editMenu img{
+
+#editList img {
     display: block;
     width: 40px;
     height: 40px;
     margin-left: calc(auto + 20px);
 
 }
-#closeButton{
+
+#closeButton {
     display: block;
     border: none;
     background-color: white;
 }
-#sabTitle{
+
+#sabTitle {
     font-size: 14px;
     color: #656565;
     margin-bottom: 10px;
 }
-#taglabel{
+
+#taglabel {
     margin: 16px 0;
 }
-#taglabel label{
+
+#taglabel label {
     display: block;
     font-size: 16px;
     width: fit-content;
     margin-bottom: 8px;
 }
-#taglabel label > .flex{
+
+#taglabel label>.flex {
     align-items: center;
 }
-#taglabel input[type=radio]{
+
+#taglabel input[type=radio] {
     display: block;
     margin-right: 4px;
     height: 16px;
     width: 16px;
 }
-#problem > p{
+
+#problem>p {
     font-size: 16px;
     margin-bottom: 8px;
 }
-#problem .flex{
+
+#problem .flex {
     margin-bottom: 10px;
 }
-#problem .flex p{
+
+#problem .flex p {
     font-size: 14px;
     width: 70%;
 }
-#problem input[type=radio]{
+
+#problem input[type=radio] {
     display: block;
 }
-input[type=submit]{
+
+
+input[type=submit],
+#addButton {
     background-color: #FA6B62;
     border-radius: 16px;
     font-size: 16px;
@@ -104,9 +130,9 @@ input[type=submit]{
     z-index: 5;
     opacity: 0;
     cursor: pointer;
-  }
-  
-  .toggle-label {
+}
+
+.toggle-label {
     width: 75px;
     height: 32px;
     background: #ccc;
@@ -115,9 +141,9 @@ input[type=submit]{
     border-radius: 20px;
     transition: 0.4s;
     box-sizing: border-box;
-  }
-  
-  .toggle-label:after {
+}
+
+.toggle-label:after {
     content: '';
     position: absolute;
     width: 32px;
@@ -129,38 +155,284 @@ input[type=submit]{
     background: #fff;
     box-shadow: 2px 2px 10px rgba(30, 0, 0, 0.4);
     transition: 0.4s;
-  }
-  
-  .toggle-input:checked + .toggle-label {
+}
+
+.toggle-input:checked+.toggle-label {
     background-color: #FA6B62;
-  }
-  
-  .toggle-input:checked + .toggle-label:after {
+}
+
+.toggle-input:checked+.toggle-label:after {
     left: 40px;
-  }
-  
-  
-  .toggle-switch {
+}
+
+
+.toggle-switch {
     position: relative;
     width: 75px;
     height: 42px;
     margin: auto;
-  }
-  
-#form{
-    width: 60%;
-    margin: 0 auto;
-    background-color: white;
 }
 
-#form > h1{
-    font-size: 20px;
+main {
+    gap: 0 20px;
+}
+
+#form {
+    width: 60%;
+    background-color: white;
+    margin-top: 8px;
+    border-radius: 8px;
+    padding: 12px 10%;
+
+}
+
+#form>h1 {
+    font-size: 16px;
     font-weight: inherit;
     text-align: center;
 }
-#form > p:nth-of-type(1){
+
+#form>p:nth-of-type(1) {
     font-size: 14px;
     text-align: center;
     color: #656565;
+}
 
+
+/* タイトル */
+
+.main_title {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.main_title input[type='text'] {
+    width: 100%;
+    border: none;
+    padding-left: 5.5em;
+    border-bottom: 1px solid #1b2538;
+    background: transparent;
+}
+
+.main_title .title_input {
+    padding: 4px 0;
+    border: 0;
+    border-bottom: 1px solid #1b2538;
+    background-color: transparent;
+}
+
+.main_title .title_input~.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 0.4s;
+    background-color: #FA6B62;
+}
+
+.main_title .title_input~label {
+    position: absolute;
+    top: 2px;
+    font-size: 14px;
+    left: 0;
+    width: 100%;
+    color: #aaaaaa;
+    transition: 0.3s;
+}
+
+/*focus時の設定*/
+.main_title input[type='text']:focus {
+    outline: none;
+}
+
+.main_title .title_input:focus~.underline {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.main_title .title_input:focus~label {
+    font-size: 12px;
+    top: -16px;
+    transition: 0.3s;
+    color: #FA6B62;
+}
+
+/* 投稿内容 */
+.main_content {
+    position: relative;
+    display: block;
+    height: 209px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    padding-top: 8px;
+    border: none;
+    box-sizing: border-box;
+}
+
+
+.main_content textarea {
+    width: 100%;
+    padding-left: 1em;
+    padding-top: 20px;
+    border-bottom: 1px solid #1b2538;
+    background: transparent;
+}
+
+.main_content .content_textarea {
+    height: 200px;
+    border: 0;
+    resize: none;
+    border-bottom: 1px solid #1b2538;
+    background-color: transparent;
+}
+
+.main_content .content_textarea~.underline2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: 0.4s;
+    background-color: #FA6B62;
+}
+
+
+.main_content .content_textarea~label {
+    position: absolute;
+    top: 2px;
+    font-size: 14px;
+    left: 0;
+    width: 100%;
+    color: #aaaaaa;
+    transition: 0.3s;
+}
+
+/*focus時の設定*/
+.main_content textarea:focus {
+    outline: none;
+}
+
+.main_content .content_textarea:focus~.underline2 {
+    width: 100%;
+    transition: 0.4s;
+}
+
+.main_content .content_textarea:focus~label {
+    font-size: 12px;
+    top: -16px;
+    transition: 0.3s;
+    color: #FA6B62;
+}
+
+
+/* タグ */
+
+.problemLabel {
+    text-align: center;
+    border: 1px solid #656565;
+    width: 20%;
+    height: 30px;
+    border-radius: 8px;
+    margin-right: 30px;
+    padding-top: 4px;
+    font-size: 14px;
+}
+
+.problemLabel:nth-of-type(1) {
+    background-color: white;
+    color: #FA6B62;
+    border: #FA6B62 1px solid;
+}
+
+.problemLabel:nth-of-type(2) {
+    border: none;
+    background-color: #FA6B62;
+    color: white;
+}
+
+.main_tag button {
+    text-align: center;
+    width: 13%;
+    height: 25px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px #656565 solid;
+
+}
+
+.main_tag select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    text-align: center;
+    width: 20%;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px #656565 solid;
+    margin-right: 30px;
+}
+
+.post_button {
+    background-color: #FA6B62;
+    border-radius: 13px;
+    font-size: 16px;
+    border: none;
+    width: 250px;
+    padding: 8px 0;
+    color: white;
+    margin-top: 35px;
+    margin-left: 25%;
+}
+
+#tag_p {
+    color: #656565;
+    margin: 10px 0 10px 20px;
+}
+
+/* 投稿する写真 */
+#imgBox {
+    width: 120px;
+    height: 160px;
+    border-radius: 16px;
+    background-color: #D2D2D2;
+    position: relative;
+}
+
+#imgBox input[type=file] {
+    visibility: hidden;
+}
+
+#imgBox button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 12px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 0 8px;
+}
+
+#imgBox>img {
+    border-radius: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+#fileButton img {
+    display: block;
+    height: 24px;
+    width: 24px;
+}
+
+.problem {
+    display: none;
 }
