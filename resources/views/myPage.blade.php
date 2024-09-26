@@ -15,12 +15,10 @@
         @endcomponent
         <div class="main">
 
-
-            @foreach($comments as $comment)
-            <h2>{{$comment->user->name}}</h2>
-            @endforeach
+        @if(Auth::check())
+            <h2>{{Auth::user()->name}}</h2>
             <h3>プロフィール</h3>
-
+        @endif
             <div>
                 <div class="tab-wrap">
                     <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">
