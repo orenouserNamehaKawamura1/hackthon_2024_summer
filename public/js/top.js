@@ -36,9 +36,9 @@ let nowIndex = 0;
 
 function setTabClickEvents() {
     if (currentTab === "question") {
-        resetCategoryTabs();
-        resetTabDisplay();
         for (let i = 0; i < tagLabel.length; i++) {
+            resetCategoryTabs();
+            resetTabDisplay();
             // 色を変える関数に要素番号を渡す
             tagLabel[i].addEventListener("click", {
                 index: i,
@@ -46,9 +46,9 @@ function setTabClickEvents() {
             });
         }
     } else if (currentTab === "share") {
-        resetCategoryTabs();
-        resetTabDisplay();
         for (let i = 0; i < tagShareLabel.length; i++) {
+            resetCategoryTabs();
+            resetTabDisplay();
             // 色を変える関数に要素番号を渡す
             tagShareLabel[i].addEventListener("click", {
                 index: i,
@@ -57,6 +57,8 @@ function setTabClickEvents() {
         }
     }
 }
+
+setTabClickEvents();
 
 // タブのリセット
 function resetTabDisplay() {
@@ -78,6 +80,8 @@ function resetCategoryTabs() {
         tagLabel[
             i
         ].style.cssText = `background-color: ${tagColor[i]}; border: none;`;
+        // 元々選択されていたコンテンツのボーダーを削除
+        tabContent[i].style.cssText = `border: none`;
         // 表示状態もリセット
         tabContent[i].classList.remove("tab-content-on");
     }
@@ -87,6 +91,7 @@ function resetCategoryTabs() {
         tagShareLabel[
             i
         ].style.cssText = `background-color: ${tagColor[i]}; border: none;`;
+        tagShareContent[i].style.cssText = `border: none`;
         tagShareContent[i].classList.remove("tab-content-on");
     }
 
@@ -97,7 +102,7 @@ function resetCategoryTabs() {
         tabContent[0].classList.add("tab-content-on");
     } else if (currentTab === "share") {
         // 共有タブの最初のカテゴリー（例: すべてタブ）を選択
-        tagShareLabel[0].style.cssText = `background-color: ${changeColor[0]}; border: 2px solid ${changeColor[0]};`;
+        tagShareContent[0].style.cssText = `background-color: ${changeColor[0]}; border: 2px solid ${changeColor[0]};`;
         tagShareContent[0].classList.add("tab-content-on");
     }
 
@@ -184,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 初期状態では質問のコンテンツを表示、共有のコンテンツを非表示にする
     shareContent.style.display = "none";
-    setTabClickEvents();
 
     // 質問タブがクリックされた時の動作
     questionTab.addEventListener("click", function () {
