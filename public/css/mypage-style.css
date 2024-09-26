@@ -1,0 +1,14 @@
+.main_p_tag {
+    margin-left: 20px;
+}
+
+#main_p1 {
+    font-size: 30px;
+}
+
+#a_edit {
+    font-size: 15px;
+    display: flex;
+    justify-content: right;
+    margin-right: 50px;
+}

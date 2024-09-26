@@ -70,7 +70,7 @@
     padding-right: 30px;
 }
 
-.radio-area input[type="radio"]:checked + label {
+.radio-area input[type="radio"]:checked+label {
     color: white;
     background-color: #f08078;
 }
@@ -113,6 +113,7 @@
     height: 0;
     opacity: 1;
     overflow: hidden;
+    background-color: white;
 }
 
 /* .tab-content:not(#myPage .tab-content) {

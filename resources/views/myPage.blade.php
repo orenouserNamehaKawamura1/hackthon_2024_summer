@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/top-style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/mypage-style.css')}}">
 </head>
 
 <body id="body">
@@ -16,10 +17,12 @@
         <div class="main">
 
 
-            @foreach($comments as $comment)
-            <h2>{{$comment->user->name}}</h2>
-            @endforeach
-            <h3>プロフィール</h3>
+            <div class="main_p_tag">
+                @foreach($comments as $comment)
+                <p id="main_p1">{{$comment->user->name}}</p>
+                @endforeach
+                <p id="main_p2">プロフィール</p>
+            </div>
 
             <div>
                 <div class="tab-wrap">
@@ -39,12 +42,10 @@
                                 <img src="/img/hart.png" width="2.5%" height="2.5%">
                                 <p>{{$item->good}}</p>
                             </div>
-                            <a href="/edit/{{$item->id}}">編集する</a>
+                            <a href="/edit/{{$item->id}}" id="a_edit">編集する</a>
                         </div>
                         @endforeach
-                        <div class="page">
-                            {{$posts -> links('vendor.pagination.bootstrap-4')}}
-                        </div>
+
                         @else
                         <p>Not data</p>
                         @endif
@@ -68,9 +69,7 @@
                             </div>
                         </div>
                         @endforeach
-                        <div class="page">
-                            {{$goods -> links('vendor.pagination.bootstrap-4')}}
-                        </div>
+
                         @else
                         <p>Not data</p>
                         @endif
@@ -94,9 +93,7 @@
                             </div>
                         </div>
                         @endforeach
-                        <div class="page">
-                            {{$comments -> links('vendor.pagination.bootstrap-4')}}
-                        </div>
+
                         @else
                         <p>Not data</p>
                         @endif
