@@ -24,7 +24,7 @@
         <p class="subtext">{{$tag->name}}{{$item->problem_flag ? '共有':'お悩み'}}
         </p>
 
-        <p class="maintext desc">{{$item->description}}</p>
+        <p class="maintext desc">{!!nl2br(e($item->description))!!}</p>
 
         <div class=".mainothers">
             <div class="mainoutimg"><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" class="mainimage" width="300px" height="200px"></div>
