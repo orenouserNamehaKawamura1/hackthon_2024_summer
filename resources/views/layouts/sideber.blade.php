@@ -1,8 +1,8 @@
 <div class="sidebar">
     <h1>Ideus</h1>
     <div class="side_content">
-        @if(isset($user))
-        <p class="midiumtext">{{$user->name}}</p>
+        @if(Auth::check())
+        <p class="midiumtext"> {{Auth::user()->name}}</p>
         @endif
 
         <div>
@@ -11,7 +11,7 @@
                 <div class="flex side_text">
 
                     <div class="img">
-                        <img src="/img/mypage.png" alt="" width="90%">
+                        <img src="/img/sagasu.png" alt="" width="90%">
                     </div>
                     <a href="/">さがす </a>
                 </div>

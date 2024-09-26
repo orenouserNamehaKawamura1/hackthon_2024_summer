@@ -90,12 +90,16 @@ body {
     width: 13%;
 }
 
+
 .sidebar h1 {
     background: linear-gradient(90deg, rgba(255, 101, 101, 1), rgba(255, 214, 151, 1));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding: 30px;
     font-size: 45px;
+}
+.midiumtext{
+    margin-left: 30px;
 }
 
 
