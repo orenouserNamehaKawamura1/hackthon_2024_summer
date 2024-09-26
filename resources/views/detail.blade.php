@@ -23,6 +23,7 @@
         <h2 class="htext title-main ">{{$item->title}}</h2>
         <p class="subtext">{{$tag->name}}{{$item->problem_flag ? '共有':'お悩み'}}
         </p>
+
         <p class="maintext desc">{{$item->description}}</p>
 
         <div class=".mainothers">
@@ -41,6 +42,7 @@
                     </div>
 
                 </div>
+
             </div>
 
         </div>
