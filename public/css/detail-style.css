@@ -1,0 +1,47 @@
+.daytext {
+    font-size: 14px;
+    padding-left:1rem;
+}
+
+.maincontent {
+    margin-top: 0.5rem;
+    width: 60vw;
+    min-width: 600px;
+    background-color: white;
+    padding: 1rem 3rem;
+
+    border-radius: 8px 8px 0 0;
+}
+
+.maintext{
+width: 88%;
+}
+.desc {
+    line-height: 1.6;
+    padding: 0.5rem 0;
+}
+
+.title-main {
+    padding: 1rem 0;
+    width: 88%;
+
+}
+.others{
+    justify-content: space-between;
+}
+.mainoutimg {
+    max-width: 600px;
+    height: 50rem;
+    background-color: #DFDFDF;
+    border-radius: 24px;
+
+}
+.goods{
+    font-size: 24px;
+    line-height: 3rem;
+}
+.mainimage {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
