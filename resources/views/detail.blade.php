@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-wppidth, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/detail-style.css')}}">
+    @component("layouts.fonts")
+    @endcomponent
     <title>Document</title>
 </head>
-<body>
-    <h1>詳細ページ</h1>
+
+<body class="flex maingap">
     @component("layouts.sideber")
     @endcomponent
-    @if(isset($item) && isset($user))
-        <p>{{$user->name}}</p>
-        <p><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" width = "300px" height = "200px"></p>
-        <p>{{$tag->name}}
-        {{$item->problem_flag ? '共有':'お悩み'}}
+    <div class="noto-sans-jp-400 maincontent">
+        @if(isset($item) && isset($user))
+        <p class="midiumtext">{{$user->name}}</p>
+
+
+
+        <h2 class="htext title-main ">{{$item->title}}</h2>
+        <p class="subtext">{{$tag->name}}{{$item->problem_flag ? '共有':'お悩み'}}
         </p>
-        <form action="{{route('detail',['id' => $item->id])}}" method="post">
-            @csrf
-            <input type="hidden" value = "{{$item->id}}" name = "id">
-            <input type="submit" value = "いいね">
-        </form>
-        <p>{{$item->good}}</p>
-        <h2>{{$item->title}}</h2>
-        <p>{{$item->description}}</p>
-        <p>{{$item->created_at->format('Y/m/d')}}</p>
+
+        <p class="maintext desc">{{$item->description}}</p>
+
+        <div class=".mainothers">
+            <div class="mainoutimg"><img src="{{asset('storage/'.$item->img_path)}}" alt="" srcset="" class="mainimage" width="300px" height="200px"></div>
+
+            <div class="post_p_2 flex others graytext">
+
+                <p class="daytext">{{$item->created_at->format('Y/m/d')}}</p>
+                <div class="flex ingoods">
+                    <div class="flex">
+                    <p class="goodsimg"><img  src="/img/hart.png" width="70%" height="70%"><p class="goods">{{$item->good}}</p></p>
+
+                    </div>
+                    <div class="flex">
+                    <p class="goodsimg"><img  src="/img/comment.svg" width="90%" height="90%"><p class="goods">{{$item->good}}</p></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
         <div>
-            <h3>コメント</h3>
+            <h3 class="htext">{{$item->good}}件のコメント</h3>
             <form action="/comment" method="post">
-            @csrf
+                @csrf
                 <input type="text" name="comment">
                 <input type="number" name="detailId" hidden value="{{$item->id}}">
                 <input type="submit" value="コメント">
             </form>
             <ul>
                 @foreach($comments as $comment)
-                <li>
+                <li class="comment">
+                    <div class="flex">
                     <h3>{{$comment->user->name}}</h3>
-                    <p>{{$comment->created_at->format("Y/m/d")}}</p>
+                    <p class="daytext comment_day graytext">{{$comment->created_at->format("Y/m/d")}}</p>
+                    </div>
                     <p>{{$comment->comment}}</p>
                 </li>
                 @endforeach
             </ul>
 
         </div>
-    @endif
+        @endif
+    </div>
 </body>
 
 </html>
-

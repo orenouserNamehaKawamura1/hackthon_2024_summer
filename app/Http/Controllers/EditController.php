@@ -30,17 +30,26 @@ class EditController extends Controller
         $userId = Auth::id();
         $title = $request->title;
         $tag = $request->tag;
-        // $file = $request->file('ima ge');
-        // $originalName = $file->getClientOriginalName();
-        // $extension = $file->getClientOriginalExtension();
-        // $name = pathinfo($originalName, PATHINFO_FILENAME);
-        // $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
-        // $path = $file->storeAs('public',$filename);
         $description = $request->description;
         $problem = $request->problem;
 
         // データベースから投稿情報を取得する
         $item = Post::find($postId);
+
+        // 画像が更新された場合
+        // 画像関連の処理
+        $file = $request->file('image');
+        if(!is_null($file)){
+        $originalName = $file->getClientOriginalName();
+        $extension = $file->getClientOriginalExtension();
+        $name = pathinfo($originalName, PATHINFO_FILENAME);
+        $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
+        $path = $file->storeAs('public',$filename);
+        }else{
+            // 更新されなかった場合は前のパスを登録
+            $filename = $item->img_path;
+        }
+       
 
         // 登録するデータの連想配列
         $param = [

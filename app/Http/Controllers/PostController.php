@@ -41,8 +41,9 @@ class PostController extends Controller
             $name = pathinfo($originalName, PATHINFO_FILENAME);
             $filename = $name.'.'. time() . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('public',$filename);
+        }else{
+            $filename = "";
         }
-        $filename = "";
 
         // 登録するデータの連想配列
         $param = [
