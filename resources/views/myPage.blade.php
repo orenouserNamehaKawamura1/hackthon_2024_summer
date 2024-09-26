@@ -18,9 +18,9 @@
 
 
             <div class="main_p_tag">
-                @foreach($comments as $comment)
-                <p id="main_p1">{{$comment->user->name}}</p>
-                @endforeach
+                @if(Auth::check())
+                    <p id="main_p1">{{Auth::user()->name}}</p>
+                @endif
                 <p id="main_p2">プロフィール</p>
             </div>
 
