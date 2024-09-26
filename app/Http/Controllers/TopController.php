@@ -43,7 +43,6 @@ class TopController extends Controller
             $share_manegement_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['manegement'])->orderBy('created_at', 'desc')->get();
             $share_other_items = Post::where('delete_flag', 0)->where('problem_flag',$id)->where('tag_id',$tagId['other'])->orderBy('created_at', 'desc')->get();
         
-       
         return view("top",[ "items" => $items,
                             "eco_items" => $eco_items,
                             "work_items" => $work_items,
