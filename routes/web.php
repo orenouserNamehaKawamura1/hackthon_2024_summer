@@ -38,4 +38,4 @@ Route::post('/editPost/{id}', [App\Http\Controllers\EditController::class, 'edit
 // マイページのルーティング
 Route::get('/myPage', [App\Http\Controllers\MyPageController::class, 'index']);
 
-Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
+// Route::get('/{id}', [App\Http\Controllers\TopController::class, 'index'])->name('share_list');
