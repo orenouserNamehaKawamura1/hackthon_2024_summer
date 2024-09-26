@@ -111,9 +111,12 @@
 .tab-content-share {
     width: 100%;
     height: 0;
-    overflow: hidden;
     opacity: 1;
+    overflow: hidden;
 }
+
+/* .tab-content:not(#myPage .tab-content) {
+} */
 
 .tab-content-on {
     height: auto;
