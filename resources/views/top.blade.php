@@ -20,7 +20,7 @@
                 @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
                 <input type="text" name="text" id="searchText" placeholder="おすすめの料理">
-                <button type="submit" onclick="searchPostList(event)">検索</button>
+                <button type="submit">検索</button>
             </form>
 
             <div class="radio-group">
