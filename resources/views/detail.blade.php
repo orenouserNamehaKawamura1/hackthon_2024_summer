@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{asset('/css/detail-style.css')}}">
     @component("layouts.fonts")
     @endcomponent
-    <title>Document</title>
+    <title>Ideus</title>
 </head>
 
 <body class="flex maingap">

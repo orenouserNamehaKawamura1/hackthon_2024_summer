@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ideus</title>
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/top-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/mypage-style.css')}}">

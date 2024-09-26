@@ -30,7 +30,7 @@ class PostController extends Controller
         if(is_null($title) || is_null($description)){
             // Tagsテーブルからタグの一覧処理を取得する
             $items = Tag::all();
-            return view("post",["items" => $items, "titleError" => is_null($title), "descriptionError" => is_null($description)]);
+            return view("post",["items" => $items, "title" => $title, "description" => $description, "titleError" => is_null($title), "descriptionError" => is_null($description)]);
         }
         // 画像関連の処理
         $file = $request->file('image');

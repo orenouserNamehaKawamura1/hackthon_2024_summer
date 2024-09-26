@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ideus</title>
     <link rel="stylesheet" href="/css/post-style.css">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
 
@@ -31,7 +31,7 @@
                 </div>
                 <!-- タイトル -->
                 <div class="main_title">
-                    <input type="text" name="title" id="title" class="title_input" placeholder="">
+                    <input type="text" name="title" id="title" class="title_input" placeholder="" value="{{isset($title) ? $title : ''}}">
                     <label style="pointer-events: none;">タイトル</label>
                     <span class="underline"></span>
                 </div>
@@ -40,7 +40,7 @@
                 <!-- 投稿内容 -->
 
                 <div class="main_content">
-                    <textarea name="description" id="description" class="content_textarea" placeholder=""></textarea>
+                    <textarea name="description" id="description" class="content_textarea" placeholder="">{{isset($description) ? $description : ""}}</textarea>
                     <label>投稿内容(1000文字以内)</label>
                     <span class="underline2"></span>
                 </div>
