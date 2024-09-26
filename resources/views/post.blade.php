@@ -29,20 +29,22 @@
                     </label>
                     <input type="file" name="image" id="inputFile">
                 </div>
-
                 <!-- タイトル -->
                 <div class="main_title">
                     <input type="text" name="title" id="title" class="title_input" placeholder="">
                     <label style="pointer-events: none;">タイトル</label>
                     <span class="underline"></span>
                 </div>
+                <p style="color : #FA6B62;">{{isset($titleError) && $titleError ? "タイトルが空でした。" : ""}}</p>
 
                 <!-- 投稿内容 -->
+
                 <div class="main_content">
                     <textarea name="description" id="description" class="content_textarea" placeholder=""></textarea>
                     <label>投稿内容(1000文字以内)</label>
                     <span class="underline2"></span>
                 </div>
+                <p style="color : #FA6B62;">{{isset($descriptionError) && $descriptionError ? "本文が空でした。" : ""}}</p>
 
                 <div>
                     <p id="tag_p">タグ</p>
