@@ -4,6 +4,44 @@
     margin: 0;
 }
 
+/* パーツ */
+
+:root {
+    --font-24:24px;
+
+    --font-maintext:18px;
+
+    --font-mtext:16px;
+
+    --font-subtext:14px;
+
+    --font-gray:#C0C0C0;
+}
+.htext{
+    font-size: var(--font-24);
+}
+.maintext{
+    font-size: var(--font-maintext);
+}
+.midiumtext{
+    font-size: var(--font-mtext);
+}
+.subtext{
+    font-size: var(--font-subtext);
+}
+
+.maingap{
+    gap:0 1rem; 
+}
+
+.graytext{
+    color: #C0C0C0;
+}
+
+
+
+
+
 /* fonts */
  /* noto sans jp*/
 
@@ -35,7 +73,12 @@ body {
 }
 
 /* サイドバー */
+
+
 .sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 20%;
     height: 100vh;
     background-color: white;
@@ -59,7 +102,10 @@ body {
 .side_content {
     margin-top: 15px;
 }
-
+.side_outside{
+    padding: 0 1.2rem;
+    justify-content: flex-start;
+}
 .login,
 .myPage,
 .addPost {
@@ -67,10 +113,11 @@ body {
 }
 
 .side_text {
-    border-bottom: 1px black solid;
+    border-bottom: 1px #C0C0C0 solid;
     padding: 15px 15px 10px 5px;
-    margin: 0 20px;
     box-sizing: border-box;
+    
+
 }
 
 .side_text img {
@@ -80,7 +127,7 @@ body {
 .side_text a {
     color: black;
     text-decoration: none;
-    margin-left: 30%;
+    padding-left: 2rem;
 }
 
 .side_text a:hover {
