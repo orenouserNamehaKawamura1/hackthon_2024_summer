@@ -24,6 +24,7 @@
                 <p id="main_p2">プロフィール</p>
             </div>
 
+
             <div>
                 <div class="tab-wrap">
                     <input id="tab01" type="radio" name="tab" class="tab-switch tab1" checked="checked">

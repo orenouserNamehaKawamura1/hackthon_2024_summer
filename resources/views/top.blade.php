@@ -49,6 +49,7 @@
                     </label>
                     <div class="tab-content">
                         @if(isset($items))
+
                         @if(count($items))
                         @foreach($items as $item)
                         <div class="post">
@@ -67,6 +68,7 @@
                         @else
                         <p>Not data</p>
                         @endif
+
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab" class="tab-switch tab2">
@@ -250,6 +252,7 @@
                     </label>
                     <div class="tab-content-share">
                         @if(isset($share_items))
+                        
                         @if(count($share_items))
                         @foreach($share_items as $item)
                         <div class="post">
@@ -268,6 +271,7 @@
                         @else
                         <p>Not data</p>
                         @endif
+
                         @endif
                     </div>
                     <input id="tab02" type="radio" name="tab" class="tab-switch tab2">
