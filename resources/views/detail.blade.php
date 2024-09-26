@@ -47,13 +47,16 @@
 
         </div>
         <div>
+            @if(Auth::check())
             <h3 class="htext">{{$item->good}}件のコメント</h3>
-            <form action="/comment" method="post">
-                @csrf
-                <input type="text" name="comment">
-                <input type="number" name="detailId" hidden value="{{$item->id}}">
-                <input type="submit" value="コメント">
-            </form>
+                <form action="/comment" method="post">
+                    @csrf
+                    <input type="text" name="comment">
+                    <input type="number" name="detailId" hidden value="{{$item->id}}">
+                    <input type="submit" value="コメント">
+                </form>
+            @else 
+            @endif
             <ul>
                 @foreach($comments as $comment)
                 <li class="comment">
