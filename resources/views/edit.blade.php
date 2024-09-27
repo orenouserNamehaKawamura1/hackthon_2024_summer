@@ -7,6 +7,8 @@
     <title>Ideus</title>
     <link rel="stylesheet" href="/css/post-style.css">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/edit-style.css')}}">
 
 </head>
 
@@ -66,7 +68,10 @@
 
                     </div>
                 </div>
-                <button type="submit" class="post_button">編集する</button>
+                <div class="flex ButtonDiv">
+                    <a href="/deletePost/{{$item->id}}">削除</a>
+                    <button type="submit" class="post_button">編集を確定</button>
+                </div>
             </div>
         </form>
     </main>

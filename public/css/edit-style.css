@@ -1,0 +1,22 @@
+.ButtonDiv{
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 0 20px;
+}
+.ButtonDiv a{
+    display: block;
+    text-decoration: none;
+    border:  2px solid #FA6B62;
+    color: #FA6B62;
+    border-radius: 16px;
+    min-width: 32px;
+    max-height: 20px;
+    padding: 10px 30px;
+    box-sizing: content-box;
+}
+.ButtonDiv button{
+    margin: 0;
+    width: 200px;
+    cursor: pointer;
+}
