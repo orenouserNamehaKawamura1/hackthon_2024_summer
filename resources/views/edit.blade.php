@@ -9,24 +9,26 @@
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/edit-style.css')}}">
+    @component("layouts.fonts")
+    @endcomponent
 
 </head>
 
 <body>
-    <main class="flex">
+    <main class="flex noto-sans-jp-400">
         @component("layouts.sideber")
         @endcomponent
-    @if(isset($tags) && isset($item))
+        @if(isset($tags) && isset($item))
         <form id="form" action="/editPost/{{$item->id}}" method="post" enctype="multipart/form-data">
             <h1>投稿</h1>
             <p>悩みや知識を発信しよう！</p>
             <div class="post_main">
                 @csrf
                 <div id="imgBox">
-                    <img src="{{asset('storage/'.$item->img_path)}}" alt=""  id="postImg">
+                    <img src="{{asset('storage/'.$item->img_path)}}" alt="" id="postImg">
                     <label for="file">
                         <button type="button" id="fileButton" class="flex pointer">
-                            <img src="/img/plus.png" alt="" >
+                            <img src="/img/plus.png" alt="">
                             <p>画像を追加</p>
                         </button>
                     </label>
@@ -35,7 +37,8 @@
 
                 <!-- タイトル -->
                 <div class="main_title">
-                    <input type="text" name="title" id="title" class="title_input" placeholder="" value="{{$item->title}}">
+                    <input type="text" name="title" id="title" class="title_input" placeholder=""
+                        value="{{$item->title}}">
                     <label style="pointer-events: none;">タイトル</label>
                     <span class="underline"></span>
                 </div>
@@ -56,14 +59,18 @@
                         <select name="tag" id="tagSelect" style="pointer-events: none;">
                             @if(isset($tags))
                             @foreach($tags as $tag)
-                            <option value="{{$tag->id}}" {{$item->tag_id === $tag->id ? "selected" : ""}}>{{$tag->name}}</option>
+                            <option value="{{$tag->id}}" {{$item->tag_id === $tag->id ? "selected" : ""}}>{{$tag->name}}
+                            </option>
                             @endforeach
                             @endif
                         </select>
-                        <input type="radio" name="problem" value="0" class="problem" id="worries" {{!$item->problem_flag ? "checked" : ""}}>
-                        <label for="worries" class="problemLabel" {{$item->problem_flag ? "hidden='hidden'" : ""}}>お悩み</label><input type="radio"
-                            name="problem" value="1" class="problem" id="share" {{$item->problem_flag ? "checked" : ""}}><label for="share"
-                            class="problemLabel" {{!$item->problem_flag ? "hidden='hidden'" : ""}}>共有</label>
+                        <input type="radio" name="problem" value="0" class="problem" id="worries"
+                            {{!$item->problem_flag ? "checked" : ""}}>
+                        <label for="worries" class="problemLabel"
+                            {{$item->problem_flag ? "hidden='hidden'" : ""}}>お悩み</label><input type="radio"
+                            name="problem" value="1" class="problem" id="share"
+                            {{$item->problem_flag ? "checked" : ""}}><label for="share" class="problemLabel"
+                            {{!$item->problem_flag ? "hidden='hidden'" : ""}}>共有</label>
                         <button type="button" id="selectOpen">選択</button>
 
                     </div>

@@ -7,10 +7,11 @@
     <title>Ideus</title>
     <link rel="stylesheet" href="/css/post-style.css">
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
-
+    @component("layouts.fonts")
+    @endcomponent
 </head>
 
-<body>
+<body class="noto-sans-jp-400">
     <main class="flex">
         @component("layouts.sideber")
         @endcomponent
@@ -31,7 +32,8 @@
                 </div>
                 <!-- タイトル -->
                 <div class="main_title">
-                    <input type="text" name="title" id="title" class="title_input" placeholder="" value="{{isset($title) ? $title : ''}}">
+                    <input type="text" name="title" id="title" class="title_input" placeholder=""
+                        value="{{isset($title) ? $title : ''}}">
                     <label style="pointer-events: none;">タイトル</label>
                     <span class="underline"></span>
                 </div>
@@ -40,7 +42,8 @@
                 <!-- 投稿内容 -->
 
                 <div class="main_content">
-                    <textarea name="description" id="description" class="content_textarea" placeholder="">{{isset($description) ? $description : ""}}</textarea>
+                    <textarea name="description" id="description" class="content_textarea"
+                        placeholder="">{{isset($description) ? $description : ""}}</textarea>
                     <label>投稿内容(1000文字以内)</label>
                     <span class="underline2"></span>
                 </div>
@@ -49,7 +52,7 @@
                 <div>
                     <p id="tag_p">タグ</p>
                     <div class="flex main_tag">
-                        <select name="tag" id="tagSelect" style="pointer-events: none;">
+                        <select name="tag" id="tagSelect" style="pointer-events: none;" class="noto-sans-jp-400">
                             @if(isset($items))
                             @foreach($items as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
@@ -60,11 +63,11 @@
                         <label for="worries" class="problemLabel" hidden="hidden">お悩み</label><input type="radio"
                             name="problem" value="1" class="problem" checked id="share"><label for="share"
                             class="problemLabel">共有</label>
-                        <button type="button" id="selectOpen">選択</button>
+                        <button type="button" id="selectOpen" class="noto-sans-jp-400">選択</button>
 
                     </div>
                 </div>
-                <button type="submit" class="post_button">投稿する</button>
+                <button type="submit" class="post_button noto-sans-jp-400">投稿する</button>
             </div>
         </form>
     </main>

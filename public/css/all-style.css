@@ -58,12 +58,18 @@
     font-style: normal;
 }
 
-.montserrat-header{
+.montserrat-header {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: Regular;
-  }
+}
+
+.zen-kurenaido-regular {
+    font-family: "Zen Kurenaido", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
 .flex {
     display: flex;
