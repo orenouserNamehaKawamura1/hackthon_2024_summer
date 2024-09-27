@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    @component("layouts.fonts")
+    @endcomponent
     <title>Ideus</title>
 </head>
 
-<body id="body">
+<body id="body" class="noto-sans-jp-400">
     <div class="side flex">
         @component("layouts.sideber")
         @endcomponent
@@ -21,7 +23,8 @@
             <form action="/" method="post" class="main_search flex" accept-charset="UTF-8">
                 @csrf
                 <img src="/img/sagasu2.png" class="main_search_img" width="21px">
-                <input type="text" name="text" id="searchText" placeholder="ユーザ名・タイトルで検索" value="{{isset($searchText) ? $searchText : ''}}"> 
+                <input type="text" name="text" id="searchText" placeholder="ユーザ名・タイトルで検索"
+                    value="{{isset($searchText) ? $searchText : ''}}">
                 <button type="submit">検索</button>
             </form>
 
@@ -62,7 +65,7 @@
                             </div>
                         </div>
                         @endforeach
-                     
+
                         @else
                         <p>Not data</p>
                         @endif
@@ -250,7 +253,7 @@
                     </label>
                     <div class="tab-content-share">
                         @if(isset($share_items))
-                        
+
                         @if(count($share_items))
                         @foreach($share_items as $item)
                         <div class="post">

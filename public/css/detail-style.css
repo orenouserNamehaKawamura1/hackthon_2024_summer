@@ -69,6 +69,7 @@
         justify-content: center;
         text-align: center;
         align-items: center;
+        cursor: pointer;
 
     }
 
@@ -79,19 +80,19 @@
 
     .comment_day {
         text-align: center;
-        align-self:center;
+        align-self: center;
     }
 
     .comment {
         list-style: none;
     }
 
-/* コメント投稿ボタン */
-    .comment_form{
+    /* コメント投稿ボタン */
+    .comment_form {
         padding: 1rem 0;
     }
 
-    .commenttext{
+    .commenttext {
         font-size: 18px;
         border: 2px solid #c0c0c0;
         border-radius: 6px;
@@ -104,7 +105,8 @@
     .commenttext [type="text"]:focus {
         outline: 0;
     }
-    .commentbutton{
+
+    .commentbutton {
         font-size: 18px;
         padding: 0.3rem 0;
 

@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="{{asset('/css/all-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/top-style.css')}}">
     <link rel="stylesheet" href="{{asset('/css/mypage-style.css')}}">
+    @component("layouts.fonts")
+    @endcomponent
 </head>
 
-<body id="body">
+<body id="body" class="noto-sans-jp-400">
     <div class="side flex" id="myPage">
         @component("layouts.sideber")
         @endcomponent
@@ -19,7 +21,7 @@
 
             <div class="main_p_tag">
                 @if(Auth::check())
-                    <p id="main_p1">{{Auth::user()->name}}</p>
+                <p id="main_p1">{{Auth::user()->name}}</p>
                 @endif
                 <p id="main_p2">プロフィール</p>
             </div>
