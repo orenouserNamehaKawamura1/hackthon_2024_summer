@@ -67,7 +67,7 @@ class EditController extends Controller
             "tag_id" => $tag,
             "title" => $title,
             "description" => $description,
-            "img_path" => $item->img_path,
+            "img_path" => $filename,
             "good" => $item->good,
             "problem_flag" => $problem,
             "delete_flag" => $item->delete_flag,
