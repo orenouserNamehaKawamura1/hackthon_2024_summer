@@ -21,7 +21,7 @@
 
 
         <h2 class="htext title-main ">{{$item->title}}</h2>
-        <p class="subtext">{{$tag->name}}{{$item->problem_flag ? '共有':'お悩み'}}
+        <p class="subtext">{{$tag->name}}/{{$item->problem_flag ? '共有':'お悩み'}}
         </p>
 
         <p class="maintext desc">{!!nl2br(e($item->description))!!}</p>
@@ -50,11 +50,11 @@
         <div>
             @if(Auth::check())
             <h3 class="htext">{{isset($comments) ? count($comments) : 0}}件のコメント</h3>
-                <form action="/comment" method="post">
+                <form class="comment_form" action="/comment" method="post">
                     @csrf
-                    <input type="text" name="comment">
-                    <input type="number" name="detailId" hidden value="{{$item->id}}">
-                    <input type="submit" value="コメント">
+                    <input placeholder="コメントを追加" class="commenttext" type="text" name="comment">
+                    <input  type="number" name="detailId" hidden value="{{$item->id}}">
+                    <input class="commentbutton" type="submit" value="コメント">
                 </form>
             @else 
             @endif
